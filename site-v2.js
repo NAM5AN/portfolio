@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812w';
+  const V='20260812x';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -105,6 +105,7 @@
       `./resume-contact.css?v=${V}`,
       `./portfolio-index-refine.css?v=${V}`,
       `./portfolio-stats-center.css?v=${V}`,
+      `./portfolio-shell-refine.css?v=${V}`,
       `./build-links.css?v=${V}`,
       `./photo-gallery.css?v=${V}`,
       `./modal-tabs.css?v=${V}`,
