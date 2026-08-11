@@ -1,0 +1,36 @@
+Photography upload paths
+
+필수: 원본 JPEG 16장만 아래 경로/파일명으로 올리면 갤러리가 바로 동작합니다.
+썸네일 WebP는 선택사항입니다. 없으면 원본 JPEG를 자동으로 대신 표시합니다.
+
+[스냅]
+assets/photo/original/snap/snap-01.jpg  <- 5___0223-향상됨-NR.jpg
+assets/photo/original/snap/snap-02.jpg  <- 5___0688-Enhanced-NR.jpg
+assets/photo/original/snap/snap-03.jpg  <- 5___0707.jpg
+
+[컨셉]
+assets/photo/original/concept/concept-01.jpg <- KakaoTalk_20240908_1705207972.jpg
+assets/photo/original/concept/concept-02.jpg <- 5___0443.jpg
+assets/photo/original/concept/concept-03.jpg <- 5___7386.jpg
+assets/photo/original/concept/concept-04.jpg <- 3E0A7528__2.jpg
+assets/photo/original/concept/concept-05.jpg <- 3E0A7261__.jpg
+
+[코스프레]
+assets/photo/original/cosplay/cosplay-01.jpg <- 5___0197.jpg
+assets/photo/original/cosplay/cosplay-02.jpg <- 563A4657__복사.jpg
+assets/photo/original/cosplay/cosplay-03.jpg <- 5___4923.jpg
+assets/photo/original/cosplay/cosplay-04.jpg <- 563A5416.jpg
+
+[여행]
+assets/photo/original/travel/travel-01.jpg <- 3E0A8675.jpg
+assets/photo/original/travel/travel-02.jpg <- 3E0A9426.jpg
+assets/photo/original/travel/travel-03.jpg <- 3E0A8918.jpg
+assets/photo/original/travel/travel-04.jpg <- 3E0A9459.jpg
+
+[선택: WebP 썸네일]
+assets/photo/thumb/snap/snap-01.webp ... snap-03.webp
+assets/photo/thumb/concept/concept-01.webp ... concept-05.webp
+assets/photo/thumb/cosplay/cosplay-01.webp ... cosplay-04.webp
+assets/photo/thumb/travel/travel-01.webp ... travel-04.webp
+
+원본 JPEG가 존재하면 클릭 시 라이트박스에서 원본 파일을 직접 표시합니다.
