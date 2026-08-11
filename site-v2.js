@@ -1,5 +1,5 @@
 (()=>{
-  const V='20260812g';
+  const V='20260812h';
 
   /* Build the final contact grid immediately so the old four-cell layout never flashes. */
   const contact=document.querySelector('.resume-contact');
@@ -52,6 +52,7 @@
   addCss(`./portfolio-index-refine.css?v=${V}`);
   addCss(`./build-links.css?v=${V}`);
   addCss(`./photo-gallery.css?v=${V}`);
+  addCss(`./modal-tabs.css?v=${V}`);
 
   loadScript(`./site-v2-legacy.js?v=${V}`,()=>{
     loadScript(`./media-fix.js?v=${V}`,()=>{
@@ -61,7 +62,9 @@
             loadScript(`./ai-preview.js?v=${V}`,()=>{
               loadScript(`./photo-gallery.js?v=${V}`,()=>{
                 loadScript(`./photo-fit-fix.js?v=${V}`,()=>{
-                  loadScript(`./view-state.js?v=${V}`);
+                  loadScript(`./modal-tabs.js?v=${V}`,()=>{
+                    loadScript(`./view-state.js?v=${V}`);
+                  });
                 });
               });
             });
