@@ -1,0 +1,9 @@
+# Deployment-only / platform config
+.git/
+.github/
+wrangler.jsonc
+.assetsignore
+
+# Vercel Hobby static-file limit: use Google Drive player fallback for these oversized reels
+assets/reels/reel-04.mp4
+assets/reels/reel-19.mp4
