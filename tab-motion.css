@@ -113,6 +113,9 @@ body[data-view="portfolio"] .mode-tabs::before{
 .home{
   view-transition-name:mode-panel;
 }
+html.mode-panel-switching{
+  view-transition-name:none;
+}
 html.mode-panel-switching .resume-home,
 html.mode-panel-switching .home{
   pointer-events:none;
