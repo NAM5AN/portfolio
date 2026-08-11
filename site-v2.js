@@ -1,5 +1,5 @@
 (()=>{
-  const V='20260812j';
+  const V='20260812k';
 
   /* Build the final contact grid immediately so the old four-cell layout never flashes. */
   const contact=document.querySelector('.resume-contact');
@@ -31,18 +31,60 @@
     site.appendChild(tools);
   }
 
-  const addCss=href=>{
-    const el=document.createElement('link');
-    el.rel='stylesheet';
-    el.href=href;
-    document.head.appendChild(el);
-  };
-  const loadScript=(src,onload)=>{
-    const el=document.createElement('script');
-    el.src=src;
-    if(onload)el.onload=onload;
-    document.body.appendChild(el);
-  };
+  /*
+    GitHub Pages runs this file normally and can use relative asset URLs.
+    The Vercel bridge evaluates this file with a rawUrl() helper in scope.
+    In that mode, fetch CSS/JS from GitHub and inject it inline so raw.githubusercontent.com's
+    MIME type cannot block script/style execution.
+  */
+  const remoteMode=typeof rawUrl==='function';
+  const resolveAsset=href=>remoteMode?rawUrl(href):href;
+
+  function addCss(href){
+    if(!remoteMode){
+      const el=document.createElement('link');
+      el.rel='stylesheet';
+      el.href=href;
+      document.head.appendChild(el);
+      return;
+    }
+    fetch(resolveAsset(href),{cache:'no-store'})
+      .then(r=>{
+        if(!r.ok)throw new Error(`${href}: ${r.status}`);
+        return r.text();
+      })
+      .then(css=>{
+        const el=document.createElement('style');
+        el.dataset.source=href;
+        el.textContent=css;
+        document.head.appendChild(el);
+      })
+      .catch(err=>console.error('[portfolio] CSS load failed',href,err));
+  }
+
+  function loadScript(src,onload){
+    if(!remoteMode){
+      const el=document.createElement('script');
+      el.src=src;
+      if(onload)el.onload=onload;
+      el.onerror=err=>console.error('[portfolio] script load failed',src,err);
+      document.body.appendChild(el);
+      return;
+    }
+    fetch(resolveAsset(src),{cache:'no-store'})
+      .then(r=>{
+        if(!r.ok)throw new Error(`${src}: ${r.status}`);
+        return r.text();
+      })
+      .then(code=>{
+        const el=document.createElement('script');
+        el.dataset.source=src;
+        el.textContent=`${code}\n//# sourceURL=${resolveAsset(src).replace(/\s/g,'%20')}`;
+        document.body.appendChild(el);
+        if(onload)onload();
+      })
+      .catch(err=>console.error('[portfolio] script load failed',src,err));
+  }
 
   addCss(`./layout-cleanup.css?v=${V}`);
   addCss(`./tab-motion.css?v=${V}`);
