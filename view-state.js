@@ -139,7 +139,15 @@
     if(!state){restoring=false;return}
 
     const wantedMode=state.sectionModal?'portfolio':(state.mode||'resume');
-    clickElement(document.querySelector(`.mode-tab[data-mode="${wantedMode}"]`));
+    if(typeof window.__portfolioSetMode==='function')window.__portfolioSetMode(wantedMode);
+    else{
+      document.body.dataset.view=wantedMode==='portfolio'?'portfolio':'resume';
+      document.querySelectorAll('.mode-tab').forEach(btn=>{
+        const active=btn.dataset.mode===document.body.dataset.view;
+        btn.classList.toggle('is-active',active);
+        btn.setAttribute('aria-pressed',active?'true':'false');
+      });
+    }
 
     if(state.sectionModal)openSection(state.sectionModal);
 
