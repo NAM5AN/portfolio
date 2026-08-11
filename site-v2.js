@@ -1,5 +1,9 @@
 (async()=>{
-  const V='20260812m';
+  const V='20260812n';
+
+  document.querySelector('.index-heading')?.remove();
+  document.querySelectorAll('.section-modal .modal-head>div').forEach(node=>node.remove());
+  document.querySelector('.migration-note')?.remove();
 
   const contact=document.querySelector('.resume-contact');
   if(contact){
