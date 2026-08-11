@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812o';
+  const V='20260812p';
 
   document.querySelector('.index-heading')?.remove();
   document.querySelectorAll('.section-modal .modal-head>div').forEach(node=>node.remove());
@@ -98,8 +98,19 @@
       `./portfolio-index-refine.css?v=${V}`,
       `./build-links.css?v=${V}`,
       `./photo-gallery.css?v=${V}`,
-      `./modal-tabs.css?v=${V}`
+      `./modal-tabs.css?v=${V}`,
+      `./font-theme.css?v=${V}`
     ].map(loadCss));
+
+    if(document.fonts?.load){
+      await Promise.race([
+        Promise.all([
+          document.fonts.load('500 32px Aggravo'),
+          document.fonts.load("400 16px 'Pretendard Variable'")
+        ]),
+        new Promise(resolve=>setTimeout(resolve,1800))
+      ]);
+    }
 
     const scripts=[
       './site-v2-legacy.js',
