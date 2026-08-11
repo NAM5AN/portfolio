@@ -1,0 +1,36 @@
+/* Unified modal scroll treatment: keep scrolling, hide native chrome. */
+.section-modal .modal-body,
+.section-modal .doc-index,
+.section-modal .doc-reader{
+  scrollbar-width:none!important;
+  -ms-overflow-style:none;
+}
+.section-modal .modal-body::-webkit-scrollbar,
+.section-modal .doc-index::-webkit-scrollbar,
+.section-modal .doc-reader::-webkit-scrollbar{
+  width:0!important;
+  height:0!important;
+  display:none!important;
+}
+
+.modal-scroll-indicator{
+  position:fixed;
+  z-index:40;
+  width:4px;
+  min-height:34px;
+  border-radius:999px;
+  background:rgba(23,23,20,.48);
+  opacity:0;
+  pointer-events:none;
+  transform:translateZ(0);
+  transition:opacity 170ms ease;
+  will-change:top,left,height,opacity;
+}
+.modal-scroll-indicator.is-visible{opacity:1}
+
+@media(max-width:900px){
+  .modal-scroll-indicator{width:3px}
+}
+@media(prefers-reduced-motion:reduce){
+  .modal-scroll-indicator{transition:none}
+}
