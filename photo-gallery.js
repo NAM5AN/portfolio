@@ -23,9 +23,9 @@
     ]},
     {id:'travel',label:'여행',items:[
       {file:'travel-01.jpg',name:'3E0A8675.jpg'},
-      {file:'travel-02.jpg',name:'3E0A9426.jpg'},
-      {file:'travel-03.jpg',name:'3E0A8918.jpg'},
-      {file:'travel-04.jpg',name:'3E0A9459.jpg'}
+      {file:'travel-04.jpg',name:'3E0A9426.jpg'},
+      {file:'travel-02.jpg',name:'3E0A8918.jpg'},
+      {file:'travel-03.jpg',name:'3E0A9459.jpg'}
     ]}
   ];
 
