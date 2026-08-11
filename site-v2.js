@@ -1,5 +1,5 @@
 (()=>{
-  const V='20260812k';
+  const V='20260812l';
 
   /* Build the final contact grid immediately so the old four-cell layout never flashes. */
   const contact=document.querySelector('.resume-contact');
@@ -104,9 +104,11 @@
             loadScript(`./build-links.js?v=${V}`,()=>{
               loadScript(`./ai-preview.js?v=${V}`,()=>{
                 loadScript(`./photo-gallery.js?v=${V}`,()=>{
-                  loadScript(`./photo-fit-fix.js?v=${V}`,()=>{
-                    loadScript(`./modal-tabs.js?v=${V}`,()=>{
-                      loadScript(`./view-state.js?v=${V}`);
+                  loadScript(`./photo-asset-bridge.js?v=${V}`,()=>{
+                    loadScript(`./photo-fit-fix.js?v=${V}`,()=>{
+                      loadScript(`./modal-tabs.js?v=${V}`,()=>{
+                        loadScript(`./view-state.js?v=${V}`);
+                      });
                     });
                   });
                 });
