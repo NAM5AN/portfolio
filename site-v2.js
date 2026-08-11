@@ -1,5 +1,5 @@
 (()=>{
-  const V='20260812f';
+  const V='20260812g';
 
   /* Build the final contact grid immediately so the old four-cell layout never flashes. */
   const contact=document.querySelector('.resume-contact');
@@ -49,6 +49,7 @@
   addCss(`./title-number-scale.css?v=${V}`);
   addCss(`./resume-refine.css?v=${V}`);
   addCss(`./resume-contact.css?v=${V}`);
+  addCss(`./portfolio-index-refine.css?v=${V}`);
   addCss(`./build-links.css?v=${V}`);
   addCss(`./photo-gallery.css?v=${V}`);
 
