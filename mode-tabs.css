@@ -2,3 +2,55 @@
 .mode-tabs{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--line);border-radius:999px;background:#ece9df}.mode-tab{border:0;background:transparent;border-radius:999px;padding:7px 15px;font-size:11px;font-weight:800;letter-spacing:-.02em;color:var(--muted);transition:background .18s,color .18s,transform .18s}.mode-tab:hover{color:var(--ink)}.mode-tab.is-active{background:var(--ink);color:var(--paper);box-shadow:0 2px 8px rgba(23,23,20,.12)}body:not([data-view="portfolio"]) .home{display:none}body[data-view="portfolio"] .resume-home{display:none}.resume-home{min-height:0;display:grid;grid-template-columns:minmax(310px,.72fr) minmax(560px,1.28fr);gap:10px}.resume-profile,.resume-career{border:1px solid var(--line);background:rgba(248,247,242,.96);border-radius:22px;min-height:0;overflow:hidden}.resume-profile{padding:clamp(24px,3vw,46px);display:flex;flex-direction:column}.resume-label{font:800 9px ui-monospace,monospace;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}.resume-name{font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,5vw,72px);font-weight:500;letter-spacing:-.055em;line-height:.92;margin:18px 0 10px}.resume-role{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:clamp(21px,2.2vw,31px);color:var(--accent);margin:0}.resume-intro{font-size:13px;line-height:1.8;color:#504e48;max-width:560px;margin:24px 0}.resume-contact{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);margin-top:4px}.resume-contact div{padding:13px 10px 13px 0}.resume-contact div:nth-child(even){padding-left:12px;border-left:1px solid var(--line)}.resume-contact small,.resume-mini small,.resume-block-kicker{display:block;font:800 8px ui-monospace,monospace;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}.resume-contact strong{display:block;margin-top:4px;font-size:11px;line-height:1.5}.resume-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:16px 0}.resume-stat{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fff}.resume-stat strong{display:block;font-family:Georgia,serif;font-size:28px;font-weight:500;letter-spacing:-.03em}.resume-stat span{display:block;margin-top:3px;font-size:9px;color:var(--muted)}.resume-profile-bottom{margin-top:auto}.resume-skills{border-top:1px solid var(--ink);padding-top:14px}.resume-skills h3{font-family:Georgia,serif;font-size:20px;margin:0 0 10px;font-weight:500}.skill-cloud{display:flex;gap:6px;flex-wrap:wrap}.skill-cloud span{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 9px;font-size:9px;font-weight:700}.resume-gear{font-size:10px;line-height:1.6;color:var(--muted);margin:12px 0 0}.resume-career{display:grid;grid-template-rows:auto 1fr}.resume-career-head{display:flex;align-items:flex-end;justify-content:space-between;padding:24px 28px 18px;border-bottom:1px solid var(--line)}.resume-career-head h2{font-family:Georgia,serif;font-size:34px;font-weight:500;letter-spacing:-.04em;margin:5px 0 0}.resume-career-head p{font-size:10px;color:var(--muted);margin:0}.resume-scroll{overflow:auto;overscroll-behavior:contain;padding:0 28px 42px}.resume-section{padding:22px 0;border-bottom:1px solid var(--line)}.resume-section:last-child{border-bottom:0}.resume-section-title{display:grid;grid-template-columns:90px 1fr;gap:14px;align-items:start;margin-bottom:14px}.resume-section-title span{font:800 9px ui-monospace,monospace;color:var(--accent);padding-top:4px}.resume-section-title h3{font-family:Georgia,serif;font-size:25px;font-weight:500;letter-spacing:-.035em;margin:0}.career-list{border-top:1px solid var(--ink)}.career-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:22px;padding:16px 0;border-bottom:1px solid var(--line)}.career-row:last-child{border-bottom:0}.career-date{font:700 9px ui-monospace,monospace;color:var(--muted);padding-top:3px}.career-main h4{font-size:15px;margin:0 0 3px}.career-role{font-size:10px;font-weight:800;color:var(--accent);margin:0 0 6px}.career-main p:last-child{font-size:11px;line-height:1.7;color:#5b5952;margin:0}.resume-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}.resume-mini{border:1px solid var(--line);border-radius:13px;background:#fff;padding:14px}.resume-mini strong{display:block;font-size:12px;line-height:1.55;margin-top:5px}.resume-mini p{font-size:10px;line-height:1.6;color:var(--muted);margin:5px 0 0}.resume-bullets{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.resume-bullets div{border:1px solid var(--line);border-radius:12px;background:#fff;padding:13px}.resume-bullets strong{font-size:11px}.resume-bullets p{font-size:9px;line-height:1.55;color:var(--muted);margin:5px 0 0}.resume-note{margin-top:13px;font-size:9px;line-height:1.6;color:var(--muted)}
 @media(max-width:900px){.bar{padding:0 10px;gap:8px}.wordmark-role,.availability,.quiet-btn{display:none!important}.bar-right{gap:0}.mode-tabs{margin-left:auto}.mode-tab{padding:7px 11px;font-size:10px}.resume-home{grid-template-columns:1fr;overflow:auto;display:block}.resume-profile,.resume-career{border-radius:18px;margin-bottom:10px;overflow:visible}.resume-profile{min-height:auto}.resume-profile-bottom{margin-top:20px}.resume-career{display:block}.resume-scroll{overflow:visible;padding:0 18px 34px}.resume-career-head{padding:20px 18px 15px}.resume-career-head h2{font-size:28px}.resume-career-head p{display:none}.career-row{grid-template-columns:104px 1fr;gap:13px}.resume-section-title{grid-template-columns:64px 1fr}.resume-duo{grid-template-columns:1fr}.resume-bullets{grid-template-columns:1fr}.foot{display:none}.site{grid-template-rows:52px 1fr;padding:10px;gap:8px}.resume-name{font-size:50px}.resume-contact{grid-template-columns:1fr}.resume-contact div:nth-child(even){padding-left:0;border-left:0;border-top:1px solid var(--line)}.resume-stats{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:430px){.wordmark-name{font-size:18px}.mode-tab{padding:7px 10px}.resume-profile{padding:22px 18px}.resume-name{font-size:45px}.career-row{grid-template-columns:1fr;gap:5px}.career-date{padding:0}.resume-stats{gap:6px}.resume-stat strong{font-size:24px}}
+
+/* Flat resume panels and calmer portfolio hierarchy */
+.hero-copy .hero-motto{font-size:clamp(30px,2.8vw,46px);line-height:1.16;letter-spacing:-.045em;word-break:keep-all;text-wrap:balance}
+.hero-motto .motto-line{display:block}
+.hero-motto .motto-phrase{display:inline-block;white-space:nowrap}
+.hero-copy .hero-motto em{font-style:normal;font-weight:600;color:var(--accent)}
+.index-pane{grid-template-rows:auto minmax(252px,44%) minmax(170px,1fr)}
+.work-row{min-height:42px}
+.index-preview{min-height:0;margin-top:10px}
+
+.resume-home{gap:0;border-block:1px solid var(--line);background:rgba(248,247,242,.96);overflow:hidden}
+.resume-profile,.resume-career{border:0;border-radius:0;background:transparent}
+.resume-profile{border-right:1px solid var(--line);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;scrollbar-width:thin}
+.resume-profile-bottom{margin-top:24px}
+.resume-stats{gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.resume-stat{border:0;border-radius:0;background:transparent;padding:13px 12px 13px 0}
+.resume-stat:nth-child(even){border-left:1px solid var(--line);padding-left:12px}
+.resume-stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.skill-cloud{gap:0 16px}
+.skill-cloud span{position:relative;border:0;border-radius:0;background:transparent;padding:5px 0 5px 10px}
+.skill-cloud span::before{content:"";position:absolute;left:0;top:50%;width:4px;height:4px;background:var(--accent);transform:translateY(-50%)}
+.resume-career-head .career-total{max-width:430px;margin:0;text-align:right;line-height:1.45;color:var(--ink)}
+.career-total span{font:800 8px ui-monospace,monospace;letter-spacing:.1em;color:var(--accent);text-transform:uppercase}
+.career-total strong{font-size:12px}
+.career-total small{font-size:10px;color:var(--muted)}
+.resume-duo{gap:0}
+.resume-mini{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent;padding:14px 14px 14px 0}
+.resume-mini:nth-child(even){border-left:1px solid var(--line);padding-left:14px}
+.resume-bullets{gap:0;border-block:1px solid var(--line)}
+.resume-bullets div{border:0;border-radius:0;background:transparent;padding:13px 14px}
+.resume-bullets div:first-child{padding-left:0}
+.resume-bullets div+div{border-left:1px solid var(--line)}
+
+@media(max-width:900px){
+  .resume-home{overflow:auto}
+  .resume-profile,.resume-career{margin-bottom:0;border-radius:0;overflow:visible}
+  .resume-profile{border-right:0;border-bottom:1px solid var(--line)}
+  .resume-mini:nth-child(even){border-left:0;padding-left:0}
+  .resume-bullets div{padding-left:0}
+  .resume-bullets div+div{border-left:0;border-top:1px solid var(--line)}
+  .resume-career-head .career-total{display:block;max-width:300px;white-space:normal}
+}
+@media(max-width:680px){
+  .hero-copy .hero-motto{font-size:clamp(30px,10vw,42px);line-height:1.18}
+  .index-pane{grid-template-rows:auto auto;min-height:0}
+  .index-preview{display:none}
+  .work-menu{display:grid;grid-template-rows:repeat(6,58px)}
+  .work-row{height:58px;min-height:58px}
+  .resume-career-head{display:block}
+  .resume-career-head .career-total{max-width:none;margin-top:10px;text-align:left}
+}
+@media(max-width:430px){.resume-stats{gap:0}}
