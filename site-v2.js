@@ -1,5 +1,5 @@
 (()=>{
-  const V='20260812h';
+  const V='20260812i';
 
   /* Build the final contact grid immediately so the old four-cell layout never flashes. */
   const contact=document.querySelector('.resume-contact');
