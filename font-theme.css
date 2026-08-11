@@ -32,6 +32,7 @@
   --font-title:'Aggravo','Pretendard Variable',Pretendard,sans-serif;
 }
 
+/* Base copy: quiet and readable. */
 html,
 body,
 button,
@@ -41,48 +42,150 @@ select,
 option{
   font-family:var(--font-body)!important;
 }
-
+body{font-weight:400}
 p,
 li,
 dd,
 dt,
-small,
-span,
 a,
 label,
-strong,
-time{
-  font-family:inherit;
-}
+time{font-family:inherit;font-weight:400}
 
+/* Display/title layer — SB Aggro only. */
 h1,
 h2,
 h3,
 h4,
 .wordmark-name,
 .work-title,
+.resume-section-title>span,
+.work-row .no,
+.modal-no,
+.build-mark,
 .video-copy strong,
 .reel-poster strong,
 .doc-button strong,
 .design-card>span,
 .viewer-top>span,
-.resume-skills h3{
+.resume-skills h3,
+.hero-evidence strong,
+.resume-stat strong{
   font-family:var(--font-title)!important;
 }
-
+h1,
+.hero-motto{font-weight:500!important}
+h2,
+h3,
+h4,
+.wordmark-name,
+.work-title,
 .resume-section-title>span,
 .work-row .no,
 .modal-no,
-.build-mark{
-  font-family:var(--font-title)!important;
+.build-mark,
+.video-copy strong,
+.reel-poster strong,
+.doc-button strong,
+.design-card>span,
+.viewer-top>span{font-weight:700!important}
+.hero-evidence strong,
+.resume-stat strong,
+.resume-skills h3{font-weight:500!important}
+
+/* Body copy — Pretendard Regular / Book. */
+.resume-intro,
+.hero-summary,
+.career-main p:last-child,
+.feature-copy p,
+.build-case p,
+.lead,
+.resume-mini p,
+.resume-bullets p,
+.resume-note,
+.resume-gear,
+.doc-reader p,
+.photo-series p{
+  font-family:var(--font-body)!important;
+  font-weight:400!important;
 }
 
+/* Secondary copy — slightly firmer so small text remains legible. */
+.work-desc,
+.resume-stat span,
+.feature-copy .metric,
+.metric,
+.preview-shade+span,
+.photo-tab small,
+.resume-contact a,
+.actions button,
+.build-flow span,
+.workflow-steps span{
+  font-family:var(--font-body)!important;
+  font-weight:500!important;
+}
+
+/* UI / categories / navigation — Semibold. */
+button,
+.mode-tab,
+.tab,
+.photo-tab,
+.doc-button,
+.actions button,
+.youtube-link,
+.quiet-btn,
+.close,
+.work-desc,
+.career-role,
+.resume-bullets strong,
+.resume-mini strong,
+.resume-contact strong,
+.skill-cloud span{
+  font-family:var(--font-body)!important;
+  font-weight:600!important;
+}
+
+/* Labels and metadata — compact Pretendard, no leftover monospace look. */
 .meta,
 .doc-type,
+.resume-contact small,
+.resume-mini small,
+.resume-block-kicker,
+.resume-label,
 .career-date,
 .career-tenure,
-.preview-caption,
 #previewCaption,
+.preview-caption,
+.resume-stat span,
+.resume-note{
+  font-family:var(--font-body)!important;
+  font-weight:550!important;
+  font-variant-numeric:tabular-nums;
+}
+.resume-contact small,
+.resume-mini small,
+.resume-block-kicker,
+.resume-label,
+.meta,
+.doc-type,
+#previewCaption,
+.preview-caption{
+  font-weight:650!important;
+  letter-spacing:.08em;
+}
+.career-date{font-weight:600!important}
+.career-tenure{font-weight:550!important}
+
+/* Important compact labels / active states. */
+.mode-tab.is-active,
+.tab.active,
+.photo-tab.active,
+.career-role,
+.resume-contact strong,
+.skill-cloud span{
+  font-weight:700!important;
+}
+
+/* Only actual code stays monospaced. */
 code,
 pre,
 kbd,
