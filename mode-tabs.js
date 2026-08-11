@@ -6,6 +6,7 @@
   if(!bar||!home||!resume||!tabs)return;
 
   const BIRTH_DATE={year:2000,month:8,day:21};
+  const getCurrentAge=()=>new Date().getFullYear()-BIRTH_DATE.year+1;
   const getInternationalAge=()=>{
     const now=new Date();
     let age=now.getFullYear()-BIRTH_DATE.year;
@@ -47,7 +48,7 @@
 
   const refreshAge=()=>{
     const node=resume.querySelector('#resumeAge');
-    if(node)node.textContent=`만 ${getInternationalAge()}세`;
+    if(node)node.textContent=`${getCurrentAge()}세 (만 ${getInternationalAge()}세)`;
   };
 
   const refreshCareerTenures=(now=new Date())=>{
