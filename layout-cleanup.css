@@ -1,9 +1,27 @@
 /* Final chrome cleanup */
 .site{grid-template-rows:52px 1fr}
 
+/* Top bar: no rounded container, only a quiet bottom rule. */
+.bar{
+  border:0;
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  background:transparent;
+  backdrop-filter:none;
+  padding:0 8px;
+}
+.wordmark{gap:0}
+.wordmark-role{display:none!important}
+.bar-right{margin-left:auto;display:flex;align-items:center;gap:0}
+.mode-tabs{margin:0}
+
 /* Resume: the career content should use the full right pane after removing its masthead. */
 body .resume-career{grid-template-rows:1fr}
 .resume-scroll{min-height:0}
+
+/* The large resume name was removed; tighten the top of the profile until a header image is added. */
+.resume-profile>div:first-child{padding-top:0}
+.resume-intro{margin-top:0}
 
 /* Career title + calculated total on one line. */
 .resume-section-title.career-heading-row{
@@ -53,17 +71,11 @@ body[data-view="portfolio"] .work-row{
   padding:0 12px;
   border-bottom:1px solid var(--line);
 }
-body[data-view="portfolio"] .work-row:nth-child(odd){
-  border-right:1px solid var(--line);
-}
+body[data-view="portfolio"] .work-row:nth-child(odd){border-right:1px solid var(--line)}
 body[data-view="portfolio"] .work-row:nth-child(5),
-body[data-view="portfolio"] .work-row:nth-child(6){
-  border-bottom:0;
-}
+body[data-view="portfolio"] .work-row:nth-child(6){border-bottom:0}
 body[data-view="portfolio"] .work-row:hover,
-body[data-view="portfolio"] .work-row.active{
-  padding-left:16px;
-}
+body[data-view="portfolio"] .work-row.active{padding-left:16px}
 body[data-view="portfolio"] .work-title{
   font-size:clamp(18px,1.55vw,25px);
   white-space:nowrap;
@@ -98,6 +110,8 @@ body[data-view="portfolio"] .index-preview img{
 }
 
 @media(max-width:900px){
+  .bar{padding:0 4px}
+  .bar-right{margin-left:auto}
   body .resume-career{display:block}
   .resume-section-title.career-heading-row{
     grid-template-columns:64px auto minmax(0,1fr);
