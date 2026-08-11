@@ -1,5 +1,10 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
-
+@font-face {
+  font-family:'Pretendard Variable';
+  src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2') format('woff2');
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
 @font-face {
   font-family:'Aggravo';
   src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
@@ -50,7 +55,6 @@ time{
   font-family:inherit;
 }
 
-/* Primary and card titles */
 h1,
 h2,
 h3,
@@ -66,7 +70,6 @@ h4,
   font-family:var(--font-title)!important;
 }
 
-/* Section numbering belongs visually to its title. */
 .resume-section-title>span,
 .work-row .no,
 .modal-no,
@@ -74,7 +77,6 @@ h4,
   font-family:var(--font-title)!important;
 }
 
-/* Keep utilitarian metadata/code-like UI deliberately monospaced. */
 .meta,
 .doc-type,
 .career-date,
