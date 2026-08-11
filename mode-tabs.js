@@ -21,10 +21,12 @@
     return match?Number(match[1])*12+Number(match[2])-1:null;
   };
   const formatCareerMonths=months=>`${Math.floor(months/12)}년 ${months%12}개월`;
+  const getCareerRange=node=>node.dataset.range||String(node.childNodes[0]?.nodeValue||node.textContent||'').trim();
+
   const calculateCareerMonths=(root,now=new Date())=>{
     const currentMonth=now.getFullYear()*12+now.getMonth();
     const intervals=[...root.querySelectorAll('.career-date')].flatMap(node=>{
-      const parts=node.textContent.trim().split(/\s+[—–-]\s+/);
+      const parts=getCareerRange(node).split(/\s+[—–-]\s+/);
       if(parts.length!==2)return[];
       const start=parseMonthIndex(parts[0],now);
       const parsedEnd=parseMonthIndex(parts[1],now);
@@ -47,8 +49,37 @@
     const node=resume.querySelector('#resumeAge');
     if(node)node.textContent=`만 ${getInternationalAge()}세`;
   };
+
+  const refreshCareerTenures=(now=new Date())=>{
+    const currentMonth=now.getFullYear()*12+now.getMonth();
+    resume.querySelectorAll('.career-date').forEach(node=>{
+      const range=getCareerRange(node);
+      if(!range)return;
+      node.dataset.range=range;
+      const parts=range.split(/\s+[—–-]\s+/);
+      if(parts.length!==2)return;
+      const start=parseMonthIndex(parts[0],now);
+      const parsedEnd=parseMonthIndex(parts[1],now);
+      if(start===null||parsedEnd===null)return;
+      const isCurrent=String(parts[1]).trim().toUpperCase()==='NOW';
+      const end=Math.min(parsedEnd,currentMonth);
+      if(end<start)return;
+      const months=end-start+1;
+      let tenure=node.querySelector('.career-tenure');
+      if(!tenure){
+        tenure=document.createElement('small');
+        tenure.className='career-tenure';
+        node.appendChild(tenure);
+      }
+      tenure.classList.toggle('is-current',isCurrent);
+      tenure.textContent=`${formatCareerMonths(months)}${isCurrent?' · 재직중':''}`;
+    });
+  };
+
   const refreshCareer=()=>{
-    const summary=calculateCareerMonths(resume);
+    const now=new Date();
+    refreshCareerTenures(now);
+    const summary=calculateCareerMonths(resume,now);
     const totalText=formatCareerMonths(summary.total);
     const uniqueText=formatCareerMonths(summary.unique);
     const totalNode=resume.querySelector('#careerTotal');
@@ -88,6 +119,8 @@
       if(resetResumeScroll)resume.querySelector('.resume-scroll')?.scrollTo({top:0});
     }
   };
+
+  window.__portfolioSetMode=setMode;
 
   /* The whole switch acts as one toggle: clicking either label or the gap flips modes. */
   tabs.addEventListener('click',()=>{
