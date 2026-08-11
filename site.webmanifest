@@ -1,0 +1,9 @@
+{
+  "name": "김수정 — Content Producer Portfolio",
+  "short_name": "김수정 Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#e8eaed",
+  "theme_color": "#e8eaed",
+  "icons": []
+}
