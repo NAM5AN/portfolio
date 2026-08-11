@@ -1,0 +1,108 @@
+/* Elastic sliding indicator for Resume / Portfolio switch */
+.mode-tabs{
+  position:relative;
+  isolation:isolate;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:3px;
+  min-width:204px;
+  padding:3px;
+  overflow:hidden;
+}
+.mode-tabs::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:3px;
+  bottom:3px;
+  left:3px;
+  width:calc((100% - 9px)/2);
+  border-radius:999px;
+  background:var(--ink);
+  box-shadow:0 2px 8px rgba(23,23,20,.12);
+  transform:translateX(0) scaleX(1);
+  transform-origin:center;
+  will-change:transform;
+}
+body[data-view="portfolio"] .mode-tabs::before{
+  transform:translateX(calc(100% + 3px)) scaleX(1);
+}
+.mode-tab{
+  position:relative;
+  z-index:1;
+  width:100%;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:var(--muted);
+  transition:
+    color 190ms cubic-bezier(.22,.61,.36,1),
+    transform 160ms cubic-bezier(.2,.9,.3,1.25);
+}
+.mode-tab.is-active{
+  background:transparent!important;
+  box-shadow:none!important;
+  color:var(--paper);
+  transition-delay:70ms,0ms;
+}
+.mode-tab:active{transform:scale(.965)}
+
+.mode-tabs.is-moving-right::before{
+  animation:mode-pill-right 520ms both;
+}
+.mode-tabs.is-moving-left::before{
+  animation:mode-pill-left 520ms both;
+}
+
+@keyframes mode-pill-right{
+  0%{
+    transform:translateX(0) scaleX(1);
+    transform-origin:right center;
+    animation-timing-function:cubic-bezier(.16,.78,.24,1.16);
+  }
+  46%{
+    transform:translateX(calc(106% + 3px)) scaleX(1.12);
+    transform-origin:left center;
+    animation-timing-function:cubic-bezier(.22,.75,.24,1.18);
+  }
+  72%{
+    transform:translateX(calc(98.5% + 3px)) scaleX(.97);
+    transform-origin:center;
+    animation-timing-function:cubic-bezier(.2,.8,.28,1.12);
+  }
+  100%{
+    transform:translateX(calc(100% + 3px)) scaleX(1);
+    transform-origin:center;
+  }
+}
+
+@keyframes mode-pill-left{
+  0%{
+    transform:translateX(calc(100% + 3px)) scaleX(1);
+    transform-origin:left center;
+    animation-timing-function:cubic-bezier(.16,.78,.24,1.16);
+  }
+  46%{
+    transform:translateX(-6%) scaleX(1.12);
+    transform-origin:right center;
+    animation-timing-function:cubic-bezier(.22,.75,.24,1.18);
+  }
+  72%{
+    transform:translateX(1.5%) scaleX(.97);
+    transform-origin:center;
+    animation-timing-function:cubic-bezier(.2,.8,.28,1.12);
+  }
+  100%{
+    transform:translateX(0) scaleX(1);
+    transform-origin:center;
+  }
+}
+
+@media(max-width:900px){
+  .mode-tabs{min-width:174px}
+}
+@media(max-width:430px){
+  .mode-tabs{min-width:164px}
+}
+@media(prefers-reduced-motion:reduce){
+  .mode-tabs::before,.mode-tab{animation:none!important;transition:none!important}
+}
