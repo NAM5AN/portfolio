@@ -1,0 +1,37 @@
+/* Match the Portfolio home shell to the flat Resume canvas. */
+body[data-view="portfolio"] #work-index.home{
+  gap:0!important;
+  border:1px solid var(--line)!important;
+  border-radius:0!important;
+  background:rgba(248,247,242,.96)!important;
+  overflow:hidden!important;
+  box-shadow:none!important;
+}
+
+body[data-view="portfolio"] #work-index>.hero-pane,
+body[data-view="portfolio"] #work-index>.index-pane{
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+
+body[data-view="portfolio"] #work-index>.hero-pane{
+  border-right:1px solid var(--line)!important;
+}
+
+/* Keep inner content spacing, but remove the floating-card feel. */
+body[data-view="portfolio"] #work-index>.index-pane{
+  min-width:0;
+}
+
+@media(max-width:900px){
+  body[data-view="portfolio"] #work-index.home{
+    overflow:auto!important;
+  }
+  body[data-view="portfolio"] #work-index>.hero-pane{
+    border-right:0!important;
+    border-bottom:1px solid var(--line)!important;
+  }
+}
