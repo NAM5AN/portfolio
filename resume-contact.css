@@ -1,0 +1,44 @@
+/* Resume contact / social links */
+.resume-contact a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:inherit;
+  text-decoration:none;
+  transition:color 180ms ease,transform 180ms ease;
+}
+.resume-contact a::after{
+  content:"↗";
+  font-size:.68em;
+  font-weight:500;
+  line-height:1;
+  opacity:.55;
+  transform:translateY(-1px);
+  transition:transform 180ms cubic-bezier(.2,.8,.25,1.2),opacity 180ms ease;
+}
+.resume-contact a:hover,
+.resume-contact a:focus-visible{
+  color:var(--accent);
+}
+.resume-contact a:hover::after,
+.resume-contact a:focus-visible::after{
+  opacity:1;
+  transform:translate(2px,-3px);
+}
+.resume-contact a:focus-visible{
+  outline:1px solid currentColor;
+  outline-offset:4px;
+}
+
+/* Six information cells: LOCATION|CONTACT, BIRTH|INSTAGRAM, AGE|BLOG */
+.resume-contact > div{
+  min-width:0;
+}
+.resume-contact strong,
+.resume-contact a{
+  overflow-wrap:anywhere;
+}
+
+@media(max-width:900px){
+  .resume-contact a::after{opacity:.7}
+}
