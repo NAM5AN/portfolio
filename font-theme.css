@@ -1,0 +1,89 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+
+@font-face {
+  font-family:'Aggravo';
+  src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+  font-weight:300;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face {
+  font-family:'Aggravo';
+  src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+  font-weight:500;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face {
+  font-family:'Aggravo';
+  src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+  font-weight:700;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --font-body:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,'Segoe UI','Noto Sans KR','Malgun Gothic',sans-serif;
+  --font-title:'Aggravo','Pretendard Variable',Pretendard,sans-serif;
+}
+
+html,
+body,
+button,
+input,
+textarea,
+select,
+option{
+  font-family:var(--font-body)!important;
+}
+
+p,
+li,
+dd,
+dt,
+small,
+span,
+a,
+label,
+strong,
+time{
+  font-family:inherit;
+}
+
+/* Primary and card titles */
+h1,
+h2,
+h3,
+h4,
+.wordmark-name,
+.work-title,
+.video-copy strong,
+.reel-poster strong,
+.doc-button strong,
+.design-card>span,
+.viewer-top>span,
+.resume-skills h3{
+  font-family:var(--font-title)!important;
+}
+
+/* Section numbering belongs visually to its title. */
+.resume-section-title>span,
+.work-row .no,
+.modal-no,
+.build-mark{
+  font-family:var(--font-title)!important;
+}
+
+/* Keep utilitarian metadata/code-like UI deliberately monospaced. */
+.meta,
+.doc-type,
+.career-date,
+.career-tenure,
+.preview-caption,
+#previewCaption,
+code,
+pre,
+kbd,
+samp{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;
+}
