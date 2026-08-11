@@ -247,3 +247,6 @@ body[data-view="portfolio"] .index-preview img{
   body[data-view="resume"] .resume-gear{font-size:8px}
   body[data-view="resume"] .resume-skills h3{font-size:16px}
 }
+
+/* Boot guard: never expose the stale pre-patch DOM during refresh. */
+html:not(.portfolio-ready) .site{visibility:hidden!important}
