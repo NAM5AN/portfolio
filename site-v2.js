@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812q';
+  const V='20260812r';
 
   document.querySelector('.index-heading')?.remove();
   document.querySelectorAll('.section-modal .modal-head>div').forEach(node=>node.remove());
@@ -102,22 +102,21 @@
       `./font-theme.css?v=${V}`
     ].map(loadCss));
 
-    if(document.fonts?.load){
-      await Promise.race([
-        Promise.all([
+    /* Core navigation and date calculations must never depend on font/CDN success. */
+    await loadScript(`./mode-tabs.js?v=${V}`);
+
+    const fontReady=document.fonts?.load
+      ? Promise.allSettled([
           document.fonts.load('500 32px Aggravo'),
           document.fonts.load("400 16px 'Pretendard Variable'")
-        ]),
-        new Promise(resolve=>setTimeout(resolve,1800))
-      ]);
-    }
+        ])
+      : Promise.resolve();
 
     const scripts=[
       './site-v2-legacy.js',
       './media-fix.js',
       './worker-reel-fallback.js',
       './planning-docs.js',
-      './mode-tabs.js',
       './build-links.js',
       './photo-gallery.js',
       './photo-asset-bridge.js',
@@ -127,6 +126,13 @@
       './view-state.js'
     ];
     for(const src of scripts)await loadScript(`${src}?v=${V}`);
+
+    await Promise.race([
+      fontReady,
+      new Promise(resolve=>setTimeout(resolve,1200))
+    ]).catch(()=>{});
+  }catch(err){
+    console.error('[portfolio] initialization error',err);
   }finally{
     document.documentElement.classList.add('portfolio-ready');
   }
