@@ -12,7 +12,7 @@
 .work-row{min-height:42px}
 .index-preview{min-height:0;margin-top:10px}
 
-.resume-home{gap:0;border-block:1px solid var(--line);background:rgba(248,247,242,.96);overflow:hidden}
+.resume-home{gap:0;border:1px solid var(--line);box-sizing:border-box;background:rgba(248,247,242,.96);overflow:hidden}
 .resume-profile,.resume-career{border:0;border-radius:0;background:transparent}
 .resume-profile{border-right:1px solid var(--line);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;scrollbar-width:thin}
 .resume-profile-bottom{margin-top:24px}
