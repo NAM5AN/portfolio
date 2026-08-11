@@ -108,6 +108,82 @@ body[data-view="portfolio"] .mode-tabs::before{
   }
 }
 
+/* The main resume / portfolio shell uses the same sticky overshoot language as the pill. */
+.resume-home,
+.home{
+  view-transition-name:mode-panel;
+}
+html.mode-panel-switching .resume-home,
+html.mode-panel-switching .home{
+  pointer-events:none;
+}
+::view-transition-group(mode-panel){
+  animation:none;
+  z-index:3;
+}
+::view-transition-image-pair(mode-panel){
+  isolation:auto;
+}
+::view-transition-old(mode-panel),
+::view-transition-new(mode-panel){
+  animation-duration:520ms;
+  animation-fill-mode:both;
+  mix-blend-mode:normal;
+  backface-visibility:hidden;
+  transform-origin:center;
+}
+html.mode-swipe-to-portfolio::view-transition-old(mode-panel){
+  animation-name:mode-panel-old-left;
+}
+html.mode-swipe-to-portfolio::view-transition-new(mode-panel){
+  animation-name:mode-panel-new-left;
+}
+html.mode-swipe-to-resume::view-transition-old(mode-panel){
+  animation-name:mode-panel-old-right;
+}
+html.mode-swipe-to-resume::view-transition-new(mode-panel){
+  animation-name:mode-panel-new-right;
+}
+
+@keyframes mode-panel-old-left{
+  0%{transform:translateX(0) scaleX(1);animation-timing-function:cubic-bezier(.16,.78,.24,1.16)}
+  58%{transform:translateX(-104%) scaleX(.985);animation-timing-function:cubic-bezier(.22,.75,.24,1.12)}
+  100%{transform:translateX(-100%) scaleX(1)}
+}
+@keyframes mode-panel-new-left{
+  0%{transform:translateX(100%) scaleX(.985);animation-timing-function:cubic-bezier(.16,.78,.24,1.16)}
+  48%{transform:translateX(-2.6%) scaleX(1.018);animation-timing-function:cubic-bezier(.22,.75,.24,1.18)}
+  74%{transform:translateX(1.1%) scaleX(.995);animation-timing-function:cubic-bezier(.2,.8,.28,1.12)}
+  100%{transform:translateX(0) scaleX(1)}
+}
+@keyframes mode-panel-old-right{
+  0%{transform:translateX(0) scaleX(1);animation-timing-function:cubic-bezier(.16,.78,.24,1.16)}
+  58%{transform:translateX(104%) scaleX(.985);animation-timing-function:cubic-bezier(.22,.75,.24,1.12)}
+  100%{transform:translateX(100%) scaleX(1)}
+}
+@keyframes mode-panel-new-right{
+  0%{transform:translateX(-100%) scaleX(.985);animation-timing-function:cubic-bezier(.16,.78,.24,1.16)}
+  48%{transform:translateX(2.6%) scaleX(1.018);animation-timing-function:cubic-bezier(.22,.75,.24,1.18)}
+  74%{transform:translateX(-1.1%) scaleX(.995);animation-timing-function:cubic-bezier(.2,.8,.28,1.12)}
+  100%{transform:translateX(0) scaleX(1)}
+}
+
+/* Fallback for browsers without View Transitions. */
+.mode-panel-enter-right{animation:mode-panel-fallback-right 520ms both}
+.mode-panel-enter-left{animation:mode-panel-fallback-left 520ms both}
+@keyframes mode-panel-fallback-right{
+  0%{transform:translateX(8%) scaleX(.985)}
+  48%{transform:translateX(-1.4%) scaleX(1.012)}
+  74%{transform:translateX(.6%) scaleX(.996)}
+  100%{transform:translateX(0) scaleX(1)}
+}
+@keyframes mode-panel-fallback-left{
+  0%{transform:translateX(-8%) scaleX(.985)}
+  48%{transform:translateX(1.4%) scaleX(1.012)}
+  74%{transform:translateX(-.6%) scaleX(.996)}
+  100%{transform:translateX(0) scaleX(1)}
+}
+
 @media(max-width:900px){
   .mode-tabs{min-width:174px;gap:6px}
   .mode-tabs::before{width:calc((100% - 6px)/2)}
@@ -130,5 +206,7 @@ body[data-view="portfolio"] .mode-tabs::before{
   .mode-tab{padding-inline:10px!important}
 }
 @media(prefers-reduced-motion:reduce){
-  .mode-tabs::before,.mode-tab{animation:none!important;transition:none!important}
+  .mode-tabs::before,.mode-tab,
+  .mode-panel-enter-right,.mode-panel-enter-left{animation:none!important;transition:none!important}
+  ::view-transition-old(mode-panel),::view-transition-new(mode-panel){animation:none!important}
 }
