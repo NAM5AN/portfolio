@@ -89,9 +89,11 @@
     }
   };
 
-  tabs.addEventListener('click',e=>{
-    const btn=e.target.closest('[data-mode]');
-    if(btn)setMode(btn.dataset.mode,{resetResumeScroll:btn.dataset.mode==='resume'});
+  /* The whole switch acts as one toggle: clicking either label or the gap flips modes. */
+  tabs.addEventListener('click',()=>{
+    const current=document.body.dataset.view==='portfolio'?'portfolio':'resume';
+    const next=current==='portfolio'?'resume':'portfolio';
+    setMode(next,{resetResumeScroll:next==='resume'});
   });
   bar.querySelector('.wordmark')?.addEventListener('click',e=>{
     e.preventDefault();
