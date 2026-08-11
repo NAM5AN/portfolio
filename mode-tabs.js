@@ -62,8 +62,20 @@
     if(countNode)countNode.textContent=String(summary.count).padStart(2,'0');
   };
 
+  let motionTimer=0;
+  const playModeMotion=(from,to)=>{
+    if(from===to)return;
+    clearTimeout(motionTimer);
+    tabs.classList.remove('is-moving-left','is-moving-right');
+    void tabs.offsetWidth;
+    tabs.classList.add(to==='portfolio'?'is-moving-right':'is-moving-left');
+    motionTimer=window.setTimeout(()=>tabs.classList.remove('is-moving-left','is-moving-right'),540);
+  };
+
   const setMode=(mode,{resetResumeScroll=false}={})=>{
     const next=mode==='portfolio'?'portfolio':'resume';
+    const current=document.body.dataset.view==='portfolio'?'portfolio':'resume';
+    playModeMotion(current,next);
     document.body.dataset.view=next;
     tabs.querySelectorAll('.mode-tab').forEach(btn=>{
       const active=btn.dataset.mode===next;
