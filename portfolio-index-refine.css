@@ -1,0 +1,22 @@
+/* Portfolio index header removal + description alignment */
+body[data-view="portfolio"] .index-pane{
+  grid-template-rows:auto auto;
+  padding-top:8px;
+}
+
+body[data-view="portfolio"] .index-heading{
+  display:none!important;
+}
+
+body[data-view="portfolio"] .work-desc{
+  justify-self:end;
+  width:100%;
+  text-align:right;
+}
+
+@media(max-width:680px){
+  body[data-view="portfolio"] .index-pane{
+    grid-template-rows:auto;
+    padding-top:8px;
+  }
+}
