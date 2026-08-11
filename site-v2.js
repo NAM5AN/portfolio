@@ -1,5 +1,23 @@
 (()=>{
-  const V='20260812e';
+  const V='20260812f';
+
+  /* Build the final contact grid immediately so the old four-cell layout never flashes. */
+  const contact=document.querySelector('.resume-contact');
+  if(contact){
+    const birth={year:2000,month:8,day:21};
+    const now=new Date();
+    const currentAge=now.getFullYear()-birth.year+1;
+    let internationalAge=now.getFullYear()-birth.year;
+    const birthdayPassed=(now.getMonth()+1>birth.month)||((now.getMonth()+1===birth.month)&&now.getDate()>=birth.day);
+    if(!birthdayPassed)internationalAge-=1;
+    contact.innerHTML=`
+      <div><small>LOCATION</small><strong>경기 부천 · 서울 전체 · 재택</strong></div>
+      <div><small>CONTACT</small><strong>010-9168-2854</strong></div>
+      <div><small>BIRTH</small><strong>2000.08.21</strong></div>
+      <div><small>INSTAGRAM</small><strong><a href="https://www.instagram.com/5uu_uuu/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 @5uu_uuu 새 탭에서 열기">@5uu_uuu</a></strong></div>
+      <div><small>AGE</small><strong id="resumeAge">${currentAge}세 (만 ${internationalAge}세)</strong></div>
+      <div><small>BLOG</small><strong><a href="https://blog.naver.com/tnwjd2854" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그 tnwjd2854 새 탭에서 열기">tnwjd2854</a></strong></div>`;
+  }
 
   /* Promote the resume tools block to a site-wide footer before the rest of the UI boots. */
   const site=document.querySelector('.site');
@@ -30,6 +48,7 @@
   addCss(`./tab-motion.css?v=${V}`);
   addCss(`./title-number-scale.css?v=${V}`);
   addCss(`./resume-refine.css?v=${V}`);
+  addCss(`./resume-contact.css?v=${V}`);
   addCss(`./build-links.css?v=${V}`);
   addCss(`./photo-gallery.css?v=${V}`);
 
