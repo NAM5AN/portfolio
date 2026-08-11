@@ -1,8 +1,19 @@
 /* Sequence numbers should carry the same visual weight as their title. */
-.resume-section-title > span{
-  font-size:25px;
-  line-height:1;
-  padding-top:0;
+.resume-section-title,
+.resume-section-title.career-heading-row{
+  align-items:baseline!important;
+}
+.resume-section-title > span,
+.resume-section-title > h3{
+  margin:0!important;
+  padding:0!important;
+  font-size:25px!important;
+  line-height:1!important;
+  vertical-align:baseline;
+  align-self:baseline!important;
+}
+.resume-section-title.career-heading-row .career-total{
+  align-self:center!important;
 }
 
 body[data-view="portfolio"] .work-row .no{
