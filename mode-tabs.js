@@ -1,8 +1,17 @@
 (()=>{
-  const css=document.createElement('link');css.rel='stylesheet';css.href='./mode-tabs.css?v=20260811e';document.head.appendChild(css);
+  const css=document.createElement('link');css.rel='stylesheet';css.href='./mode-tabs.css?v=20260811f';document.head.appendChild(css);
   const bar=document.querySelector('.bar');
   const home=document.querySelector('.home');
   if(!bar||!home)return;
+
+  const BIRTH_DATE={year:2000,month:8,day:21};
+  const getInternationalAge=()=>{
+    const now=new Date();
+    let age=now.getFullYear()-BIRTH_DATE.year;
+    const birthdayPassed=(now.getMonth()+1>BIRTH_DATE.month)||((now.getMonth()+1===BIRTH_DATE.month)&&now.getDate()>=BIRTH_DATE.day);
+    if(!birthdayPassed)age-=1;
+    return age;
+  };
 
   const tabs=document.createElement('nav');
   tabs.className='mode-tabs';tabs.setAttribute('aria-label','보기 모드');
@@ -26,6 +35,8 @@
         <div class="resume-contact">
           <div><small>LOCATION</small><strong>경기 부천 · 서울 전체 · 재택</strong></div>
           <div><small>CONTACT</small><strong>010-9168-2854</strong></div>
+          <div><small>BIRTH</small><strong>2000.08.21</strong></div>
+          <div><small>AGE</small><strong id="resumeAge">만 ${getInternationalAge()}세</strong></div>
         </div>
         <div class="resume-stats">
           <div class="resume-stat"><strong>7년 3개월</strong><span>중복기간 제외 경력</span></div>
@@ -91,10 +102,14 @@
     </section>`;
   home.parentNode.insertBefore(resume,home);
 
+  function refreshAge(){
+    const ageNode=resume.querySelector('#resumeAge');
+    if(ageNode)ageNode.textContent=`만 ${getInternationalAge()}세`;
+  }
   function setMode(mode){
     document.body.dataset.view=mode;
     tabs.querySelectorAll('.mode-tab').forEach(btn=>{const active=btn.dataset.mode===mode;btn.classList.toggle('is-active',active);btn.setAttribute('aria-pressed',active?'true':'false')});
-    if(mode==='resume'){resume.querySelector('.resume-scroll')?.scrollTo({top:0});}
+    if(mode==='resume'){refreshAge();resume.querySelector('.resume-scroll')?.scrollTo({top:0});}
   }
   tabs.addEventListener('click',e=>{const btn=e.target.closest('[data-mode]');if(btn)setMode(btn.dataset.mode)});
   setMode('resume');
