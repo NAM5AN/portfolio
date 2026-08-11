@@ -1,1 +1,1 @@
-(()=>{const legacy=document.createElement('script');legacy.src='./site-v2-legacy.js?v=20260811b';legacy.onload=()=>{const fix=document.createElement('script');fix.src='./media-fix.js?v=20260811b';document.body.appendChild(fix)};document.body.appendChild(legacy)})();
+(()=>{const legacy=document.createElement('script');legacy.src='./site-v2-legacy.js?v=20260811c';legacy.onload=()=>{const fix=document.createElement('script');fix.src='./media-fix.js?v=20260811c';document.body.appendChild(fix)};document.body.appendChild(legacy)})();
