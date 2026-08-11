@@ -2,7 +2,7 @@
 .site{grid-template-rows:52px 1fr}
 
 /* Resume: the career content should use the full right pane after removing its masthead. */
-.resume-career{grid-template-rows:1fr}
+body .resume-career{grid-template-rows:1fr}
 .resume-scroll{min-height:0}
 
 /* Career title + calculated total on one line. */
@@ -34,7 +34,7 @@
 .hero-copy{margin:auto 0}
 
 @media(max-width:900px){
-  .resume-career{display:block}
+  body .resume-career{display:block}
   .resume-section-title.career-heading-row{
     grid-template-columns:64px auto minmax(0,1fr);
   }
