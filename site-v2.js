@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812p';
+  const V='20260812q';
 
   document.querySelector('.index-heading')?.remove();
   document.querySelectorAll('.section-modal .modal-head>div').forEach(node=>node.remove());
