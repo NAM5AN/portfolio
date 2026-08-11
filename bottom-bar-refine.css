@@ -37,6 +37,34 @@
 .site > .site-tools-bar .skill-cloud{min-width:0;justify-content:flex-start}
 .site > .site-tools-bar .resume-gear{margin:0;text-align:right;white-space:nowrap}
 
+/* Resume right pane: keep scrolling, remove the browser scrollbar completely. */
+.resume-career{position:relative}
+.resume-scroll{
+  scrollbar-width:none!important;
+  -ms-overflow-style:none;
+}
+.resume-scroll::-webkit-scrollbar{
+  width:0!important;
+  height:0!important;
+  display:none!important;
+}
+.resume-scroll-indicator{
+  position:absolute;
+  z-index:12;
+  right:4px;
+  top:8px;
+  width:4px;
+  min-height:34px;
+  border-radius:999px;
+  background:rgba(23,23,20,.48);
+  opacity:0;
+  pointer-events:none;
+  transform:translateZ(0);
+  transition:opacity 170ms ease;
+  will-change:top,height,opacity;
+}
+.resume-scroll-indicator.is-visible{opacity:1}
+
 @media(min-width:901px){
   .site{
     grid-template-rows:52px minmax(0,1fr) 58px!important;
@@ -53,6 +81,7 @@
     padding:8px 4px!important;
     column-gap:12px;
   }
+  .resume-scroll-indicator{right:2px;width:3px}
 }
 
 @media(max-width:680px){
@@ -61,4 +90,8 @@
     row-gap:6px;
   }
   .site > .site-tools-bar .resume-gear{text-align:left;white-space:normal}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .resume-scroll-indicator{transition:none}
 }
