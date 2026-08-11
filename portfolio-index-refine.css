@@ -1,11 +1,18 @@
 /* Portfolio index header removal + description alignment */
 body[data-view="portfolio"] .index-pane{
-  grid-template-rows:auto auto;
-  padding-top:8px;
+  grid-template-rows:auto minmax(0,1fr)!important;
+  align-content:stretch!important;
+  padding:8px 16px 10px!important;
+  overflow:hidden!important;
 }
 
 body[data-view="portfolio"] .index-heading{
   display:none!important;
+}
+
+body[data-view="portfolio"] .work-menu{
+  align-self:start;
+  min-height:0;
 }
 
 body[data-view="portfolio"] .work-desc{
@@ -14,9 +21,39 @@ body[data-view="portfolio"] .work-desc{
   text-align:right;
 }
 
+/* The preview owns only the remaining row. The 16:9 source is always shown in full. */
+body[data-view="portfolio"] .index-preview{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  aspect-ratio:auto!important;
+  margin-top:8px!important;
+  align-self:stretch!important;
+  justify-self:stretch!important;
+  overflow:hidden!important;
+  background:#151513;
+}
+body[data-view="portfolio"] .index-preview img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+
+@media(max-width:1100px) and (min-width:681px){
+  body[data-view="portfolio"] .work-menu{
+    grid-template-rows:repeat(3,46px)!important;
+  }
+  body[data-view="portfolio"] .work-row{
+    height:46px!important;
+    min-height:46px!important;
+  }
+}
+
 @media(max-width:680px){
   body[data-view="portfolio"] .index-pane{
-    grid-template-rows:auto;
-    padding-top:8px;
+    grid-template-rows:auto!important;
+    padding-top:8px!important;
+    overflow:auto!important;
   }
 }
