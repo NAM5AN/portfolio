@@ -1,0 +1,11 @@
+/* Center the four portfolio evidence metrics inside each column. */
+body[data-view="portfolio"] .hero-evidence button{
+  text-align:center!important;
+  padding-left:10px!important;
+  padding-right:10px!important;
+}
+body[data-view="portfolio"] .hero-evidence strong,
+body[data-view="portfolio"] .hero-evidence span{
+  width:100%;
+  text-align:center!important;
+}
