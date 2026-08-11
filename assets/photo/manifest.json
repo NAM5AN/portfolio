@@ -1,0 +1,192 @@
+{
+  "categories": [
+    {
+      "id": "snap",
+      "label": "스냅",
+      "count": 3,
+      "items": [
+        {
+          "id": "snap-01",
+          "originalName": "5___0223-향상됨-NR.jpg",
+          "original": "./assets/photo/original/snap/snap-01.jpg",
+          "thumbnail": "./assets/photo/thumb/snap/snap-01.webp",
+          "width": 2800,
+          "height": 4200,
+          "bytes": 4164053,
+          "sha256": "78e779cb9b162a03a0a44ff42198c84eb85daac23355e52d680e00acf0e7f893"
+        },
+        {
+          "id": "snap-02",
+          "originalName": "5___0688-Enhanced-NR.jpg",
+          "original": "./assets/photo/original/snap/snap-02.jpg",
+          "thumbnail": "./assets/photo/thumb/snap/snap-02.webp",
+          "width": 3370,
+          "height": 2246,
+          "bytes": 4201633,
+          "sha256": "02a3f51a144442e78689f5699a8d5eb5a077acda18591c23bc08bf49c5a439df"
+        },
+        {
+          "id": "snap-03",
+          "originalName": "5___0707.jpg",
+          "original": "./assets/photo/original/snap/snap-03.jpg",
+          "thumbnail": "./assets/photo/thumb/snap/snap-03.webp",
+          "width": 2995,
+          "height": 1997,
+          "bytes": 4026806,
+          "sha256": "1bf09e8c9d75a966e862b8a7676322a1378fb754d3d1cee3e26855235586f539"
+        }
+      ]
+    },
+    {
+      "id": "concept",
+      "label": "컨셉",
+      "count": 5,
+      "items": [
+        {
+          "id": "concept-01",
+          "originalName": "KakaoTalk_20240908_1705207972.jpg",
+          "original": "./assets/photo/original/concept/concept-01.jpg",
+          "thumbnail": "./assets/photo/thumb/concept/concept-01.webp",
+          "width": 3744,
+          "height": 2496,
+          "bytes": 2786080,
+          "sha256": "67ad9f67ac300f6bf88c41b66777151fd11aff4db225e084de38853e9d58a7a6"
+        },
+        {
+          "id": "concept-02",
+          "originalName": "5___0443.jpg",
+          "original": "./assets/photo/original/concept/concept-02.jpg",
+          "thumbnail": "./assets/photo/thumb/concept/concept-02.webp",
+          "width": 3744,
+          "height": 2496,
+          "bytes": 3737894,
+          "sha256": "c9728f8a97b85655c7de0cee2196ac5fabf39e1daf959deb4ea7046e7814326d"
+        },
+        {
+          "id": "concept-03",
+          "originalName": "5___7386.jpg",
+          "original": "./assets/photo/original/concept/concept-03.jpg",
+          "thumbnail": "./assets/photo/thumb/concept/concept-03.webp",
+          "width": 1872,
+          "height": 2808,
+          "bytes": 4229527,
+          "sha256": "cea7bff7f8033195a372eb1e717bf8ca1ab2a0bd2e2f77fa052335407caef165"
+        },
+        {
+          "id": "concept-04",
+          "originalName": "3E0A7528__2.jpg",
+          "original": "./assets/photo/original/concept/concept-04.jpg",
+          "thumbnail": "./assets/photo/thumb/concept/concept-04.webp",
+          "width": 2848,
+          "height": 1899,
+          "bytes": 4430305,
+          "sha256": "00dbefc15f8b9916b178ca5ddad9ce1f07a4ea07134f60b8f1e821db9e44330c"
+        },
+        {
+          "id": "concept-05",
+          "originalName": "3E0A7261__.jpg",
+          "original": "./assets/photo/original/concept/concept-05.jpg",
+          "thumbnail": "./assets/photo/thumb/concept/concept-05.webp",
+          "width": 2734,
+          "height": 1823,
+          "bytes": 4738668,
+          "sha256": "0744e1244302ef6dbe45973075e58fe61f0f06f342a56403bebed2727643187d"
+        }
+      ]
+    },
+    {
+      "id": "cosplay",
+      "label": "코스프레",
+      "count": 4,
+      "items": [
+        {
+          "id": "cosplay-01",
+          "originalName": "5___0197.jpg",
+          "original": "./assets/photo/original/cosplay/cosplay-01.jpg",
+          "thumbnail": "./assets/photo/thumb/cosplay/cosplay-01.webp",
+          "width": 1997,
+          "height": 2995,
+          "bytes": 4145683,
+          "sha256": "c3886a59c1e82faff87c983b42e07cc4da8d59126a7363fb00342efcac5c41b0"
+        },
+        {
+          "id": "cosplay-02",
+          "originalName": "563A4657_ 복사.jpg",
+          "original": "./assets/photo/original/cosplay/cosplay-02.jpg",
+          "thumbnail": "./assets/photo/thumb/cosplay/cosplay-02.webp",
+          "width": 2021,
+          "height": 3600,
+          "bytes": 4307103,
+          "sha256": "6719de04023ea1a940ffcccd06d8de25b024127a2750e56648aaa541cd667663"
+        },
+        {
+          "id": "cosplay-03",
+          "originalName": "5___4923.jpg",
+          "original": "./assets/photo/original/cosplay/cosplay-03.jpg",
+          "thumbnail": "./assets/photo/thumb/cosplay/cosplay-03.webp",
+          "width": 2246,
+          "height": 3370,
+          "bytes": 4552484,
+          "sha256": "6d3915aefb0f299040b16c753eccfe7ae4722dd15d504839daa8da6313a21e78"
+        },
+        {
+          "id": "cosplay-04",
+          "originalName": "563A5416.jpg",
+          "original": "./assets/photo/original/cosplay/cosplay-04.jpg",
+          "thumbnail": "./assets/photo/thumb/cosplay/cosplay-04.webp",
+          "width": 4200,
+          "height": 2358,
+          "bytes": 4452771,
+          "sha256": "019ba729cc3c84d007eac3fbc7253148f6063c7bc02892476197f2b8897b7353"
+        }
+      ]
+    },
+    {
+      "id": "travel",
+      "label": "여행",
+      "count": 4,
+      "items": [
+        {
+          "id": "travel-01",
+          "originalName": "3E0A8675.jpg",
+          "original": "./assets/photo/original/travel/travel-01.jpg",
+          "thumbnail": "./assets/photo/thumb/travel/travel-01.webp",
+          "width": 1080,
+          "height": 608,
+          "bytes": 534183,
+          "sha256": "725aea27241a4052a960ebd890b66a3bbbf1c8631ecdc91ded2a087b1bee3965"
+        },
+        {
+          "id": "travel-02",
+          "originalName": "3E0A8918.jpg",
+          "original": "./assets/photo/original/travel/travel-02.jpg",
+          "thumbnail": "./assets/photo/thumb/travel/travel-02.webp",
+          "width": 1080,
+          "height": 608,
+          "bytes": 543217,
+          "sha256": "7f774204e6a9a40c83db6f5f38d8ad1b43819abfbd82b9bc5ba26371e5cb3982"
+        },
+        {
+          "id": "travel-03",
+          "originalName": "3E0A9459.jpg",
+          "original": "./assets/photo/original/travel/travel-03.jpg",
+          "thumbnail": "./assets/photo/thumb/travel/travel-03.webp",
+          "width": 1080,
+          "height": 720,
+          "bytes": 616926,
+          "sha256": "09a3d96ed73bcfc86c6d7daa4446e9540052886237b17deadb75be269fdd19cc"
+        },
+        {
+          "id": "travel-04",
+          "originalName": "3E0A9426.jpg",
+          "original": "./assets/photo/original/travel/travel-04.jpg",
+          "thumbnail": "./assets/photo/thumb/travel/travel-04.webp",
+          "width": 1080,
+          "height": 720,
+          "bytes": 706401,
+          "sha256": "4b2ca0a1dd443ba44b38bb76794b59ea301a509443e7384be7a0664f79401d35"
+        }
+      ]
+    }
+  ]
+}
