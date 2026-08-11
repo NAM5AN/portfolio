@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812n';
+  const V='20260812o';
 
   document.querySelector('.index-heading')?.remove();
   document.querySelectorAll('.section-modal .modal-head>div').forEach(node=>node.remove());
@@ -35,6 +35,16 @@
 
   const remoteMode=typeof rawUrl==='function';
   const resolveAsset=href=>remoteMode?rawUrl(href):href;
+  const rawBase=typeof window.__portfolioAssetBase==='string'?window.__portfolioAssetBase:'';
+  const photoPreview=rawBase?`${rawBase}assets/photo/thumb/snap/snap-01.webp`:'./assets/photo/thumb/snap/snap-01.webp';
+  [
+    'https://i.ytimg.com/vi/jINNCqnUSL8/maxresdefault.jpg',
+    'https://i.ytimg.com/vi/fY-a_4WTMnQ/maxresdefault.jpg',
+    'https://i.ytimg.com/vi/RRaPlueNU8Y/maxresdefault.jpg',
+    photoPreview,
+    'https://drive.google.com/thumbnail?id=1IMS882egUEvxo32byMvxnYUVQnDglh0x&sz=w1600',
+    'https://at.adobe.com/0IK54OX5RkmXPbkF'
+  ].forEach(src=>{const img=new Image();img.decoding='async';img.src=src});
 
   const loadCss=href=>new Promise(resolve=>{
     if(!remoteMode){
