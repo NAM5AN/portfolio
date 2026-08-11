@@ -1,0 +1,60 @@
+/* Final chrome cleanup */
+.site{grid-template-rows:52px 1fr}
+
+/* Resume: the career content should use the full right pane after removing its masthead. */
+.resume-career{grid-template-rows:1fr}
+.resume-scroll{min-height:0}
+
+/* Career title + calculated total on one line. */
+.resume-section-title.career-heading-row{
+  grid-template-columns:90px auto minmax(240px,1fr);
+  align-items:end;
+}
+.resume-section-title.career-heading-row .career-total{
+  justify-self:end;
+  align-self:center;
+  max-width:none;
+  margin:0;
+  text-align:right;
+  line-height:1.45;
+  white-space:nowrap;
+  color:var(--ink);
+}
+.resume-section-title.career-heading-row .career-total span{
+  padding:0;
+  font:800 8px ui-monospace,monospace;
+  letter-spacing:.1em;
+  color:var(--accent);
+  text-transform:uppercase;
+}
+.resume-section-title.career-heading-row .career-total strong{font-size:12px}
+.resume-section-title.career-heading-row .career-total small{font-size:10px;color:var(--muted)}
+
+/* Removed hero microcopy should not leave artificial vertical space. */
+.hero-copy{margin:auto 0}
+
+@media(max-width:900px){
+  .resume-career{display:block}
+  .resume-section-title.career-heading-row{
+    grid-template-columns:64px auto minmax(0,1fr);
+  }
+  .resume-section-title.career-heading-row .career-total{
+    display:block;
+    justify-self:end;
+    max-width:none;
+    white-space:normal;
+  }
+}
+
+@media(max-width:680px){
+  .resume-section-title.career-heading-row{
+    grid-template-columns:64px 1fr;
+    align-items:start;
+  }
+  .resume-section-title.career-heading-row .career-total{
+    grid-column:2;
+    justify-self:start;
+    margin-top:7px;
+    text-align:left;
+  }
+}
