@@ -13,12 +13,23 @@ body[data-view="portfolio"] .index-heading{
 body[data-view="portfolio"] .work-menu{
   align-self:start;
   min-height:0;
+  border-top:0!important;
 }
 
 body[data-view="portfolio"] .work-desc{
   justify-self:end;
   width:100%;
   text-align:right;
+}
+
+/* Highlight only the sequence number of the currently hovered/selected item. */
+body[data-view="portfolio"] .work-row .no{
+  transition:color .16s ease;
+}
+body[data-view="portfolio"] .work-row:hover .no,
+body[data-view="portfolio"] .work-row:focus-visible .no,
+body[data-view="portfolio"] .work-row.active .no{
+  color:var(--accent)!important;
 }
 
 /* The preview owns only the remaining row. The 16:9 source is always shown in full. */
