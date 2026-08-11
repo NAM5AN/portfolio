@@ -1,9 +1,138 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f1efe9"><meta name="description" content="김수정 — 콘텐츠 기획, 영상 제작, 사진, 디자인, AI·바이브코딩 포트폴리오"><title>김수정 — Portfolio</title><link rel="icon" href="./assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./site-v2.css"></head><body><a class="skip" href="#work-index">작업 목록으로 이동</a><div class="site"><header class="bar"><button class="wordmark" type="button" data-open="resumeModal"><span class="wordmark-name">김수정</span><span class="wordmark-role">CONTENT PRODUCER</span></button><div class="bar-right"><span class="availability">VIDEO · PHOTO · DESIGN · AI</span><button class="quiet-btn" type="button" data-open="resumeModal">RESUME</button></div></header><main class="home" id="work-index"><section class="hero-pane"><div class="hero-topline"><span>SELECTED WORK · 2019—2026</span><span>BUCHEON / SEOUL</span></div><div class="hero-copy"><p class="hero-kicker">기획 → 촬영 → 편집 → 디자인 → 운영</p><h1>보여줄 콘텐츠를<br><em>끝까지 만들어내는 사람.</em></h1><p class="hero-summary">영상 제작을 중심으로 기획, 촬영, 편집, 사진, 실무 디자인을 다룹니다. 반복되는 제작 문제는 AI와 웹 도구로 직접 해결합니다.</p></div><div class="hero-evidence"><button type="button" data-open="featuredModal"><strong>4.2만</strong><span>대표 기획 영상 조회</span></button><button type="button" data-open="videoModal"><strong>28+</strong><span>YouTube 작업물</span></button><button type="button" data-open="planningModal"><strong>06</strong><span>실전 기획 문서</span></button><button type="button" data-open="designModal"><strong>18p</strong><span>InDesign 브로슈어</span></button></div></section><section class="index-pane"><div class="index-heading"><span>WORK INDEX</span><span>클릭하여 내부에서 보기</span></div><div class="work-menu"><button class="work-row active" type="button" data-open="featuredModal" data-preview="featured"><span class="no">01</span><span class="work-title">Featured</span><span class="work-desc">성과 · 역할 · 제작 과정</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="videoModal" data-preview="video"><span class="no">02</span><span class="work-title">Video</span><span class="work-desc">PD · 뉴스 · 인터뷰 · 릴스</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="planningModal" data-preview="planning"><span class="no">03</span><span class="work-title">Planning</span><span class="work-desc">전략 · 리서치 · 촬영 설계</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="photoModal" data-preview="photo"><span class="no">04</span><span class="work-title">Photography</span><span class="work-desc">스냅 · 컨셉 · 코스프레 · 여행</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="designModal" data-preview="design"><span class="no">05</span><span class="work-title">Design</span><span class="work-desc">의료 · 공지 · 홍보 · 편집디자인</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="buildModal" data-preview="build"><span class="no">06</span><span class="work-title">AI & Build</span><span class="work-desc">바이브코딩 · AI 영상 워크플로우</span><span class="arrow">↗</span></button></div><div class="index-preview"><img id="homePreview" src="https://i.ytimg.com/vi/jINNCqnUSL8/maxresdefault.jpg" alt=""><div class="preview-shade"></div><span id="previewCaption">FEATURED / CONTENT STRATEGY</span></div></section></main><footer class="foot"><span>Premiere · Photoshop · Lightroom · After Effects · InDesign</span><span>Canon R6 Mark II · Adobe + AI workflow</span></footer></div>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f1efe9">
+  <meta name="description" content="김수정 — 콘텐츠 기획, 영상 제작, 사진, 디자인, AI·바이브코딩 포트폴리오">
+  <title>김수정 — Portfolio</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./site-v2.css?v=20260811u">
+  <link rel="stylesheet" href="./mode-tabs.css?v=20260811u">
+  <link rel="stylesheet" href="./layout-cleanup.css?v=20260811u">
+</head>
+<body data-view="resume">
+<script>
+  try{
+    const saved=JSON.parse(sessionStorage.getItem('ks-portfolio-view-state-v1')||'null');
+    if(saved)document.body.dataset.view=saved.sectionModal?'portfolio':(saved.mode==='portfolio'?'portfolio':'resume');
+  }catch{}
+</script>
+<a class="skip" href="#work-index">작업 목록으로 이동</a>
+<div class="site">
+  <header class="bar">
+    <button class="wordmark" type="button" aria-label="이력서로 이동"><span class="wordmark-name">김수정</span></button>
+    <div class="bar-right">
+      <nav class="mode-tabs" aria-label="보기 모드">
+        <button class="mode-tab is-active" type="button" data-mode="resume" aria-pressed="true">이력서</button>
+        <button class="mode-tab" type="button" data-mode="portfolio" aria-pressed="false">포트폴리오</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="resume-home" id="resumeView">
+    <section class="resume-profile" aria-label="이력서 요약" tabindex="0">
+      <div>
+        <p class="resume-intro">영상 제작을 중심으로 촬영, 편집, 사진, 디자인 실무를 이어왔습니다. 공공기관·대학 온라인 강의, 웨딩, 유튜브 채널, 인터넷 언론사, 병원 홍보물까지 서로 다른 제작 환경에서 현장과 후반작업을 함께 경험했습니다.</p>
+        <div class="resume-contact">
+          <div><small>LOCATION</small><strong>경기 부천 · 서울 전체 · 재택</strong></div>
+          <div><small>CONTACT</small><strong>010-9168-2854</strong></div>
+          <div><small>BIRTH</small><strong>2000.08.21</strong></div>
+          <div><small>AGE</small><strong id="resumeAge">만 25세</strong></div>
+        </div>
+        <div class="resume-stats">
+          <div class="resume-stat"><strong id="resumeNetCareer">-</strong><span>중복기간 제외 경력</span></div>
+          <div class="resume-stat"><strong id="resumeCareerCount">-</strong><span>기재 경력</span></div>
+          <div class="resume-stat"><strong>02</strong><span>자격증</span></div>
+          <div class="resume-stat"><strong>R6 II</strong><span>개인 촬영 장비</span></div>
+        </div>
+      </div>
+      <div class="resume-profile-bottom">
+        <div class="resume-skills">
+          <h3>Tools &amp; skills</h3>
+          <div class="skill-cloud"><span>Premiere Pro</span><span>Photoshop</span><span>Lightroom</span><span>After Effects</span><span>영상 촬영</span><span>사진 촬영</span><span>영상 편집</span><span>사진 편집</span><span>DSLR</span><span>AI</span><span>ChatGPT</span></div>
+          <p class="resume-gear">개인 장비 · Canon R6 Mark II · RF 24–105mm · 영상용 삼각대</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-career" aria-label="이력서 상세">
+      <div class="resume-scroll">
+        <section class="resume-section">
+          <div class="resume-section-title career-heading-row"><span>01</span><h3>경력</h3><p class="career-total" id="careerTotal" aria-live="polite"></p></div>
+          <div class="career-list">
+            <article class="career-row"><div class="career-date">2026.03 — NOW</div><div class="career-main"><h4>페리앤로즈</h4><p class="career-role">공공기관·대학 온라인 강의 제작</p><p>나라장터 입찰 기반 프로젝트의 제안자료 디자인 보조, 촬영 준비·장비 세팅·현장 운영, Photoshop 자막·레이아웃·정보 화면 제작, Premiere 컷 편집, After Effects 자막 애니메이션·모션그래픽 작업.</p></div></article>
+            <article class="career-row"><div class="career-date">2025.05 — NOW</div><div class="career-main"><h4>블리어스</h4><p class="career-role">웨딩 영상</p><p>결혼식 현장 영상촬영 메인 작가.</p></div></article>
+            <article class="career-row"><div class="career-date">2025.01 — 2025.12</div><div class="career-main"><h4>젊은부자들TV</h4><p class="career-role">유튜브 PD · 인스타 릴스</p><p>젊은부자들TV, 주식아티스트, 법학자훈훈이 유튜브 채널 PD 및 베이커리 카페·다이닝 파티 홍보용 인스타 릴스 제작.</p></div></article>
+            <article class="career-row"><div class="career-date">2024.04 — 2024.09</div><div class="career-main"><h4>모션픽쳐</h4><p class="career-role">웨딩 사진</p><p>웨딩 본식 서브스냅.</p></div></article>
+            <article class="career-row"><div class="career-date">2023.07 — 2026.03</div><div class="career-main"><h4>맑은석피부과</h4><p class="career-role">병원 콘텐츠 · 디자인</p><p>블로그 포스팅, 원내 홍보용 PPT 제작, Photoshop을 활용한 원내 공지 이미지 제작.</p></div></article>
+            <article class="career-row"><div class="career-date">2021.12 — 2023.06</div><div class="career-main"><h4>nbn내외뉴스통신</h4><p class="career-role">영상 제작</p><p>뉴스기사 영상화 및 영상 제작 담당.</p></div></article>
+            <article class="career-row"><div class="career-date">2021.10 — 2022.01</div><div class="career-main"><h4>대치몬스터Live</h4><p class="career-role">강의 편집</p><p>온라인 강의 영상 편집.</p></div></article>
+            <article class="career-row"><div class="career-date">2020.06 — 2021.02</div><div class="career-main"><h4>용감한 컴퍼니</h4><p class="career-role">강의 촬영</p><p>강의 촬영.</p></div></article>
+            <article class="career-row"><div class="career-date">2020.05 — 2021.07</div><div class="career-main"><h4>이젠미디어</h4><p class="career-role">웨딩 영상</p><p>결혼식 현장 영상촬영 메인 작가.</p></div></article>
+            <article class="career-row"><div class="career-date">2019.04 — 2020.04</div><div class="career-main"><h4>메가스터디 김영 편입학원</h4><p class="career-role">강의 촬영</p><p>강의 촬영.</p></div></article>
+          </div>
+        </section>
+        <section class="resume-section">
+          <div class="resume-section-title"><span>02</span><h3>학력 · 자격</h3></div>
+          <div class="resume-duo">
+            <div class="resume-mini"><small>EDUCATION · 2019—2024</small><strong>학점은행제 백석대학교 평생교육원</strong><p>디지털아트 · 수료</p></div>
+            <div class="resume-mini"><small>EDUCATION · 2019—2023</small><strong>백석예술대학교</strong><p>영상학부</p></div>
+            <div class="resume-mini"><small>CERTIFICATE · 2024</small><strong>멀티미디어콘텐츠제작전문가</strong><p>한국산업인력공단</p></div>
+            <div class="resume-mini"><small>CERTIFICATE · 2021</small><strong>ACA / Premiere Pro</strong><p>Adobe</p></div>
+          </div>
+        </section>
+        <section class="resume-section">
+          <div class="resume-section-title"><span>03</span><h3>업무 범위 · 강점</h3></div>
+          <div class="resume-bullets">
+            <div><strong>영상</strong><p>영상 제작 · 촬영 · 편집 · Premiere Pro</p></div>
+            <div><strong>사진</strong><p>사진 촬영 · 편집 · Lightroom · DSLR</p></div>
+            <div><strong>디자인 &amp; AI</strong><p>Photoshop · AI · ChatGPT 활용</p></div>
+          </div>
+          <p class="resume-note">이력서 기재 강점 · 긍정적 · 강철멘탈 · 성실</p>
+        </section>
+        <section class="resume-section">
+          <div class="resume-section-title"><span>04</span><h3>희망근무조건</h3></div>
+          <div class="resume-duo">
+            <div class="resume-mini"><small>LOCATION</small><strong>서울 전체 · 경기 부천시 · 재택근무</strong></div>
+            <div class="resume-mini"><small>FIELD</small><strong>사진촬영·편집 · 동영상촬영·편집 · 그래픽·영상·편집디자인</strong></div>
+            <div class="resume-mini"><small>EMPLOYMENT</small><strong>알바 · 정규직 · 계약직</strong></div>
+            <div class="resume-mini"><small>PERIOD</small><strong>1년 이상 · 근무일시 무관</strong></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <main class="home" id="work-index">
+    <section class="hero-pane">
+      <div class="hero-copy">
+        <h1 class="hero-motto"><span class="motto-line">시작은 <em>탐구</em>,</span> <span class="motto-phrase">과정은 <em>실행력</em>,</span> <span class="motto-phrase">완성은 <em>책임감</em>이라는</span> <span class="motto-line">좌우명으로 살고 있습니다.</span></h1>
+        <p class="hero-summary">영상 제작을 중심으로 기획, 촬영, 편집, 사진, 실무 디자인을 다룹니다. 반복되는 제작 문제는 AI와 웹 도구로 직접 해결합니다.</p>
+      </div>
+      <div class="hero-evidence"><button type="button" data-open="featuredModal"><strong>4.2만</strong><span>대표 기획 영상 조회</span></button><button type="button" data-open="videoModal"><strong>28+</strong><span>YouTube 작업물</span></button><button type="button" data-open="planningModal"><strong>06</strong><span>실전 기획 문서</span></button><button type="button" data-open="designModal"><strong>18p</strong><span>InDesign 브로슈어</span></button></div>
+    </section>
+    <section class="index-pane">
+      <div class="index-heading"><span>WORK INDEX</span><span>클릭하여 내부에서 보기</span></div>
+      <div class="work-menu"><button class="work-row active" type="button" data-open="featuredModal" data-preview="featured"><span class="no">01</span><span class="work-title">Featured</span><span class="work-desc">성과 · 역할 · 제작 과정</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="videoModal" data-preview="video"><span class="no">02</span><span class="work-title">Video</span><span class="work-desc">PD · 뉴스 · 인터뷰 · 릴스</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="planningModal" data-preview="planning"><span class="no">03</span><span class="work-title">Planning</span><span class="work-desc">전략 · 리서치 · 촬영 설계</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="photoModal" data-preview="photo"><span class="no">04</span><span class="work-title">Photography</span><span class="work-desc">스냅 · 컨셉 · 코스프레 · 여행</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="designModal" data-preview="design"><span class="no">05</span><span class="work-title">Design</span><span class="work-desc">의료 · 공지 · 홍보 · 편집디자인</span><span class="arrow">↗</span></button><button class="work-row" type="button" data-open="buildModal" data-preview="build"><span class="no">06</span><span class="work-title">AI &amp; Build</span><span class="work-desc">바이브코딩 · AI 영상 워크플로우</span><span class="arrow">↗</span></button></div>
+      <div class="index-preview"><img id="homePreview" src="https://i.ytimg.com/vi/jINNCqnUSL8/maxresdefault.jpg" alt=""><div class="preview-shade"></div><span id="previewCaption">FEATURED / CONTENT STRATEGY</span></div>
+    </section>
+  </main>
+</div>
+<script>
+  (()=>{const mode=document.body.dataset.view;document.querySelectorAll('.mode-tab').forEach(btn=>{const active=btn.dataset.mode===mode;btn.classList.toggle('is-active',active);btn.setAttribute('aria-pressed',active?'true':'false')})})();
+</script>
+
 <dialog class="section-modal" id="featuredModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">01</span><h2>Featured work</h2></div><button class="close" data-close>×</button></header><div class="modal-body"><p class="lead">역할과 결과, 제작 과정이 함께 확인되는 작업부터.</p><div class="featured-grid"><article class="feature-card feature-card--wide"><button class="feature-image" type="button" data-youtube="jINNCqnUSL8"><img src="https://i.ytimg.com/vi/jINNCqnUSL8/maxresdefault.jpg" alt="창업지원금 콘텐츠"><span class="play">PLAY</span></button><div class="feature-copy"><div class="meta">CONTENT STRATEGY · SHOOT · EDIT / 2025</div><h3>창업지원금 콘텐츠</h3><div class="metric">4.2만 조회 · 구독자 약 2천 증가</div><p>출연자의 창업·법학·현장 경험을 실전 멘토 포지션으로 정리하고, 정책 정보에서 실제 신청까지 이어지는 교육형 시리즈를 기획했습니다.</p><div class="actions"><button data-plan="startup">기획 과정 보기</button><button data-youtube="jINNCqnUSL8">영상 보기</button></div></div></article><article class="feature-card"><button class="feature-image" type="button" data-youtube="fY-a_4WTMnQ"><img src="https://i.ytimg.com/vi/fY-a_4WTMnQ/maxresdefault.jpg" alt="50억 자산가의 24시간"><span class="play">PLAY</span></button><div class="feature-copy"><div class="meta">REPURPOSING · PRODUCTION</div><h3>50억 자산가의 24시간</h3><div class="metric">2.5천 → 재편집 2만 → 연계 4.1만</div><p>하루 촬영분을 여러 채널에서 재사용하도록 시간대별 촬영 목적과 B-roll을 설계했습니다.</p><div class="actions"><button data-plan="routine">촬영 설계 보기</button><button data-youtube="fY-a_4WTMnQ">영상 보기</button></div></div></article><article class="feature-card"><button class="feature-image" type="button" data-youtube="QBUQtzn8RgY"><img src="https://i.ytimg.com/vi/QBUQtzn8RgY/maxresdefault.jpg" alt="NBN"><span class="play">PLAY</span></button><div class="feature-copy"><div class="meta">NEWSROOM SYSTEM / 2021—2023</div><h3>NBN 채널 포맷 재정립</h3><div class="metric">메인뉴스 · TTS · Shorts 템플릿</div><p>사수 없이 채널을 인수해 기사 작성, 자료 수집, 촬영, 편집과 뉴스 포맷·템플릿까지 재정립했습니다.</p><div class="actions"><button data-open="videoModal" data-video-tab="nbn">영상 아카이브</button></div></div></article><article class="feature-card"><button class="feature-image" type="button" data-youtube="TPrPnkTMmTo"><img src="https://i.ytimg.com/vi/TPrPnkTMmTo/maxresdefault.jpg" alt="소확행"><span class="play">PLAY</span></button><div class="feature-copy"><div class="meta">SHORT FILM · END-TO-END</div><h3>단편영화 〈소확행〉</h3><div class="metric">스토리보드 · 일촬표 · 촬영 · 후반</div><p>프리프로덕션부터 현장 촬영, 편집·색보정·오디오, 포스터까지 제작 과정 전체를 경험했습니다.</p><div class="actions"><button data-project="sohwak">제작 과정 보기</button><button data-youtube="TPrPnkTMmTo">영상 보기</button></div></div></article></div></div></div></dialog>
 <dialog class="section-modal" id="videoModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">02</span><h2>Video production</h2></div><button class="close" data-close>×</button></header><div class="modal-body"><div class="tabbar"><button class="tab active" data-tab="recent">최근 PD</button><button class="tab" data-tab="nbn">NBN · 뉴스</button><button class="tab" data-tab="school">대학 · 단편</button><button class="tab" data-tab="reels">카페 릴스 21</button></div><div id="videoPanels"></div></div></div></dialog>
-<dialog class="section-modal" id="planningModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">03</span><h2>Planning & research</h2></div><button class="close" data-close>×</button></header><div class="modal-body split-reader"><aside class="doc-index" id="planIndex"></aside><article class="doc-reader" id="planReader"></article></div></div></dialog>
-<dialog class="section-modal" id="photoModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">04</span><h2>Photography</h2></div><button class="close" data-close>×</button></header><div class="modal-body"><p class="lead">촬영 목적이 다른 사진을 네 개의 시리즈로 분리했습니다.</p><div class="photo-series" id="photoSeries"></div><div class="migration-note"><strong>16 ORIGINALS</strong><p>스냅 3 · 컨셉 5 · 코스프레 4 · 여행 4. 원본 파일의 카테고리와 보정 주체를 내부 인덱스에 보존했습니다. 사진 원본은 만료되지 않는 영구 웹 에셋으로 이전 중입니다.</p></div></div></div></dialog>
+<dialog class="section-modal" id="planningModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">03</span><h2>Planning &amp; research</h2></div><button class="close" data-close>×</button></header><div class="modal-body split-reader"><aside class="doc-index" id="planIndex"></aside><article class="doc-reader" id="planReader"></article></div></div></dialog>
+<dialog class="section-modal" id="photoModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">04</span><h2>Photography</h2></div><button class="close" data-close>×</button></header><div class="modal-body"><p class="lead">촬영 목적이 다른 사진을 네 개의 시리즈로 분리했습니다.</p><div class="photo-series" id="photoSeries"></div><div class="migration-note"><strong>16 ORIGINALS</strong><p>스냅 3 · 컨셉 5 · 코스프레 4 · 여행 4. 원본 파일의 카테고리와 보정 주체를 내부 인덱스에 보존했습니다.</p></div></div></div></dialog>
 <dialog class="section-modal" id="designModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">05</span><h2>Visual design</h2></div><button class="close" data-close>×</button></header><div class="modal-body"><div class="tabbar"><button class="tab active" data-design-tab="promo">시술 홍보 · 공지 7</button><button class="tab" data-design-tab="notice">진료 · 휴진 14</button><button class="tab" data-design-tab="brochure">가격 안내책자 18p</button></div><div id="designPanels"></div></div></div></dialog>
-<dialog class="section-modal" id="buildModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">06</span><h2>AI & Build</h2></div><button class="close" data-close>×</button></header><div class="modal-body"><p class="lead">콘텐츠 제작의 반복 문제를 도구와 워크플로우로 바꿉니다.</p><div class="build-list"><article class="build-case"><div class="build-mark">01</div><div><div class="meta">PRODUCT · SOLO BUILD</div><h3>체험단 매니저</h3><p>블로거 체험단 활동용 생산성 SaaS. 일정 관리, 릴스 콘티 생성, 네이버 댓글 생성, 뒷삭 이웃 찾기 등 콘텐츠 제작과 실적 관리 기능을 한 흐름으로 묶었습니다.</p><div class="build-flow"><span>기획</span><i>→</i><span>Vanilla JS</span><i>→</i><span>Supabase</span><i>→</i><span>OAuth</span><i>→</i><span>AI API</span><i>→</i><span>Vercel 운영</span></div><dl><div><dt>역할</dt><dd>기획 · 개발 · 배포 · 운영 1인 전담</dd></div><div><dt>연동</dt><dd>카카오/Google OAuth · OpenAI · Claude API</dd></div><div><dt>상태</dt><dd>도메인 배포 · 소수 실사용자 운영</dd></div></dl></div></article><article class="build-case"><div class="build-mark">02</div><div><div class="meta">INTERACTION · PHYSICS</div><h3>사이버 말랑이</h3><p>소프트바디 물리 엔진을 직접 구현한 슬라임 터치 게임. 40종 슬라임과 모듈 분리 구조를 구성했습니다.</p><div class="build-flow"><span>Vanilla JS</span><i>→</i><span>Soft-body</span><i>→</i><span>40 Slimes</span><i>→</i><span>Modular</span><i>→</i><span>Public test</span></div></div></article><article class="build-case"><div class="build-mark">03</div><div><div class="meta">AI VIDEO WORKFLOW</div><h3>캐릭터·공간 일관성 제작 워크플로우</h3><p>AI 영상 생성에서 컷마다 인물·공간이 달라지는 문제를 줄이기 위해 멀티컷을 싱글컷으로 분해하고 캐릭터 시트와 장소 레퍼런스 시트를 선행 제작합니다.</p><div class="workflow-steps"><span><b>1</b>장면 분해</span><span><b>2</b>캐릭터 시트</span><span><b>3</b>공간 시트</span><span><b>4</b>싱글컷 프롬프트</span><span><b>5</b>연속성 검수</span></div></div></article></div></div></div></dialog>
-<dialog class="section-modal" id="resumeModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">CV</span><h2>Resume</h2></div><button class="close" data-close>×</button></header><div class="modal-body resume-layout"><aside class="resume-aside"><h3>김수정</h3><p>Content Producer<br>Video · Photo · Design · AI</p><button class="copy-phone" id="copyPhone">010-9168-2854 복사</button><div class="skill-list"><span>Premiere ★★★</span><span>Photoshop ★★★</span><span>Lightroom ★★★</span><span>After Effects ★★</span><span>InDesign ★★</span><span>AI / Vibe Coding</span></div><div class="education"><small>EDUCATION</small><p>백석예술대학교 영상학부<br>백석대학교 평생교육원 디지털아트</p><small>CERTIFICATE</small><p>멀티미디어콘텐츠제작전문가<br>Adobe ACA · Premiere Pro</p><small>GEAR</small><p>Canon R6 Mark II<br>RF 24–105mm · Video tripod</p></div></aside><section class="career" id="careerList"></section></div></div></dialog>
-<dialog class="viewer" id="mediaViewer"><div class="viewer-top"><span id="viewerTitle">Preview</span><div><a id="youtubeLink" class="youtube-link" href="#" target="_blank" rel="noopener" hidden>YouTube ↗</a><button class="close viewer-close">×</button></div></div><div class="viewer-content" id="viewerContent"></div></dialog><dialog class="viewer detail-viewer" id="detailViewer"><div class="viewer-top"><span id="detailTitle">Detail</span><button class="close detail-close">×</button></div><div class="detail-content" id="detailContent"></div></dialog><script src="./site-v2.js?v=20260811j"></script></body></html>
+<dialog class="section-modal" id="buildModal"><div class="modal-shell"><header class="modal-head"><div><span class="modal-no">06</span><h2>AI &amp; Build</h2></div><button class="close" data-close>×</button></header><div class="modal-body"><p class="lead">콘텐츠 제작의 반복 문제를 도구와 워크플로우로 바꿉니다.</p><div class="build-list"><article class="build-case"><div class="build-mark">01</div><div><div class="meta">PRODUCT · SOLO BUILD</div><h3>체험단 매니저</h3><p>블로거 체험단 활동용 생산성 SaaS. 일정 관리, 릴스 콘티 생성, 네이버 댓글 생성, 뒷삭 이웃 찾기 등 콘텐츠 제작과 실적 관리 기능을 한 흐름으로 묶었습니다.</p><div class="build-flow"><span>기획</span><i>→</i><span>Vanilla JS</span><i>→</i><span>Supabase</span><i>→</i><span>OAuth</span><i>→</i><span>AI API</span><i>→</i><span>Vercel 운영</span></div><dl><div><dt>역할</dt><dd>기획 · 개발 · 배포 · 운영 1인 전담</dd></div><div><dt>연동</dt><dd>카카오/Google OAuth · OpenAI · Claude API</dd></div><div><dt>상태</dt><dd>도메인 배포 · 소수 실사용자 운영</dd></div></dl></div></article><article class="build-case"><div class="build-mark">02</div><div><div class="meta">INTERACTION · PHYSICS</div><h3>사이버 말랑이</h3><p>소프트바디 물리 엔진을 직접 구현한 슬라임 터치 게임. 40종 슬라임과 모듈 분리 구조를 구성했습니다.</p><div class="build-flow"><span>Vanilla JS</span><i>→</i><span>Soft-body</span><i>→</i><span>40 Slimes</span><i>→</i><span>Modular</span><i>→</i><span>Public test</span></div></div></article><article class="build-case"><div class="build-mark">03</div><div><div class="meta">AI VIDEO WORKFLOW</div><h3>캐릭터·공간 일관성 제작 워크플로우</h3><p>AI 영상 생성에서 컷마다 인물·공간이 달라지는 문제를 줄이기 위해 멀티컷을 싱글컷으로 분해하고 캐릭터 시트와 장소 레퍼런스 시트를 선행 제작합니다.</p><div class="workflow-steps"><span><b>1</b>장면 분해</span><span><b>2</b>캐릭터 시트</span><span><b>3</b>공간 시트</span><span><b>4</b>싱글컷 프롬프트</span><span><b>5</b>연속성 검수</span></div></div></article></div></div></div></dialog>
+
+<div hidden aria-hidden="true"><button id="copyPhone" type="button"></button><div id="careerList"></div></div>
+<dialog class="viewer" id="mediaViewer"><div class="viewer-top"><span id="viewerTitle">Preview</span><div><a id="youtubeLink" class="youtube-link" href="#" target="_blank" rel="noopener" hidden>YouTube ↗</a><button class="close viewer-close">×</button></div></div><div class="viewer-content" id="viewerContent"></div></dialog>
+<dialog class="viewer detail-viewer" id="detailViewer"><div class="viewer-top"><span id="detailTitle">Detail</span><button class="close detail-close">×</button></div><div class="detail-content" id="detailContent"></div></dialog>
+<script src="./site-v2.js?v=20260811u"></script>
+</body>
+</html>
