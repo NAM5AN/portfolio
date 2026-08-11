@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812z';
+  const V='20260812ab';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -109,6 +109,7 @@
       `./build-links.css?v=${V}`,
       `./photo-gallery.css?v=${V}`,
       `./modal-tabs.css?v=${V}`,
+      `./modal-scroll-refine.css?v=${V}`,
       `./font-theme.css?v=${V}`,
       `./bottom-bar-refine.css?v=${V}`
     ].map(loadCss));
@@ -133,6 +134,7 @@
       './photo-asset-bridge.js',
       './photo-fit-fix.js',
       './modal-tabs.js',
+      './modal-scroll-refine.js',
       './preview-controller.js',
       './view-state.js'
     ];
