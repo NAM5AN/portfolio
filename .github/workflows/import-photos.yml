@@ -1,0 +1,52 @@
+name: Import photography assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-photos.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import-photos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download prepared photography package
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 'https://at.adobe.com/hXZD4c39jfvuNlEw' -o /tmp/portfolio-photo-assets.zip
+          rm -rf /tmp/portfolio-photo-assets
+          mkdir -p /tmp/portfolio-photo-assets
+          unzip -q /tmp/portfolio-photo-assets.zip -d /tmp/portfolio-photo-assets
+          test -d /tmp/portfolio-photo-assets/assets/photo/original
+          test -d /tmp/portfolio-photo-assets/assets/photo/thumb
+
+      - name: Install photo assets
+        run: |
+          set -euo pipefail
+          mkdir -p assets/photo
+          cp -R /tmp/portfolio-photo-assets/assets/photo/original assets/photo/
+          cp -R /tmp/portfolio-photo-assets/assets/photo/thumb assets/photo/
+          cp /tmp/portfolio-photo-assets/photos-manifest.json assets/photo/manifest.json
+          find assets/photo/original -type f | sort
+          find assets/photo/thumb -type f | sort
+          test "$(find assets/photo/original -type f | wc -l)" -eq 16
+          test "$(find assets/photo/thumb -type f | wc -l)" -eq 16
+
+      - name: Commit imported assets
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photo
+          if git diff --cached --quiet; then
+            echo 'No asset changes to commit.'
+            exit 0
+          fi
+          git commit -m 'feat: add photography originals and thumbnails'
+          git push
