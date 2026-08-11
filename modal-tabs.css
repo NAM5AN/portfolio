@@ -1,0 +1,108 @@
+/* Portfolio detail modal cleanup + elastic text tabs */
+.section-modal .modal-shell{
+  grid-template-rows:50px minmax(0,1fr);
+}
+.section-modal .modal-head{
+  justify-content:flex-end;
+  min-height:50px;
+  padding:0 16px;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+}
+.section-modal .modal-head>div{
+  display:none!important;
+}
+.section-modal .modal-head .close{
+  width:36px;
+  height:36px;
+  border:0;
+  background:transparent;
+  font-size:21px;
+}
+.section-modal .modal-head .close:hover{
+  background:var(--ink);
+  color:var(--paper);
+}
+
+/* Same visual language as the Resume / Portfolio switch: no outer box, one moving pill. */
+.elastic-tabset{
+  position:relative!important;
+  isolation:isolate;
+  display:flex!important;
+  align-items:center;
+  flex-wrap:nowrap!important;
+  gap:8px!important;
+  width:max-content;
+  max-width:100%;
+  min-height:34px;
+  margin:0 0 20px!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+.elastic-tabset .elastic-tab-pill{
+  position:absolute;
+  z-index:0;
+  top:0;
+  bottom:0;
+  left:0;
+  width:0;
+  border-radius:999px;
+  background:var(--ink);
+  box-shadow:0 2px 8px rgba(23,23,20,.12);
+  transform:translateX(0) scaleX(1);
+  transform-origin:center;
+  will-change:transform,width;
+  pointer-events:none;
+}
+.elastic-tabset>button{
+  position:relative;
+  z-index:1;
+  flex:0 0 auto;
+  min-height:34px;
+  margin:0!important;
+  padding:8px 13px!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:var(--muted)!important;
+  font-size:10px;
+  font-weight:750;
+  line-height:1.2;
+  white-space:nowrap;
+  transition:color 180ms cubic-bezier(.22,.61,.36,1),transform 150ms cubic-bezier(.2,.9,.3,1.25);
+}
+.elastic-tabset>button.active,
+.elastic-tabset>button.is-active{
+  color:var(--paper)!important;
+  background:transparent!important;
+}
+.elastic-tabset>button:active{transform:scale(.965)}
+.elastic-tabset>button span{color:inherit!important;opacity:.62}
+
+/* Remove the old underlines / button shells from the three tabbed detail views. */
+#videoModal .tabbar.elastic-tabset,
+#designModal .tabbar.elastic-tabset,
+#photoModal .photo-gallery-tabs.elastic-tabset{
+  border:0!important;
+  border-bottom:0!important;
+  padding-bottom:0!important;
+}
+#photoModal .photo-gallery-tabs.elastic-tabset::after,
+#photoModal .photo-gallery-tab::after{
+  display:none!important;
+}
+
+@media(max-width:680px){
+  .section-modal .modal-shell{grid-template-rows:46px minmax(0,1fr)}
+  .section-modal .modal-head{min-height:46px;padding:0 10px}
+  .elastic-tabset{gap:3px!important;margin-bottom:16px!important}
+  .elastic-tabset>button{padding:7px 8px!important;font-size:9px;min-height:32px}
+}
+@media(prefers-reduced-motion:reduce){
+  .elastic-tabset .elastic-tab-pill,
+  .elastic-tabset>button{animation:none!important;transition:none!important}
+}
