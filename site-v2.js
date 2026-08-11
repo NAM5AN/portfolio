@@ -1,1 +1,53 @@
-(()=>{const addCss=(href)=>{const el=document.createElement('link');el.rel='stylesheet';el.href=href;document.head.appendChild(el)};addCss('./layout-cleanup.css?v=20260812d');addCss('./tab-motion.css?v=20260812d');addCss('./title-number-scale.css?v=20260812d');addCss('./build-links.css?v=20260812d');addCss('./photo-gallery.css?v=20260812d');const legacy=document.createElement('script');legacy.src='./site-v2-legacy.js?v=20260812d';legacy.onload=()=>{const fix=document.createElement('script');fix.src='./media-fix.js?v=20260812d';fix.onload=()=>{const docs=document.createElement('script');docs.src='./planning-docs.js?v=20260812d';docs.onload=()=>{const mode=document.createElement('script');mode.src='./mode-tabs.js?v=20260812d';mode.onload=()=>{const links=document.createElement('script');links.src='./build-links.js?v=20260812d';links.onload=()=>{const aiPreview=document.createElement('script');aiPreview.src='./ai-preview.js?v=20260812d';aiPreview.onload=()=>{const photos=document.createElement('script');photos.src='./photo-gallery.js?v=20260812d';photos.onload=()=>{const photoFit=document.createElement('script');photoFit.src='./photo-fit-fix.js?v=20260812d';photoFit.onload=()=>{const viewState=document.createElement('script');viewState.src='./view-state.js?v=20260812d';document.body.appendChild(viewState)};document.body.appendChild(photoFit)};document.body.appendChild(photos)};document.body.appendChild(aiPreview)};document.body.appendChild(links)};document.body.appendChild(mode)};document.body.appendChild(docs)};document.body.appendChild(fix)};document.body.appendChild(legacy)})();
+(()=>{
+  const V='20260812e';
+
+  /* Promote the resume tools block to a site-wide footer before the rest of the UI boots. */
+  const site=document.querySelector('.site');
+  const tools=document.querySelector('.resume-profile-bottom');
+  if(site&&tools){
+    tools.classList.add('site-tools-bar');
+    tools.querySelectorAll('.skill-cloud span').forEach(node=>{
+      const label=node.textContent.trim().toLowerCase();
+      if(label==='gpt'||label==='chatgpt')node.remove();
+    });
+    site.appendChild(tools);
+  }
+
+  const addCss=href=>{
+    const el=document.createElement('link');
+    el.rel='stylesheet';
+    el.href=href;
+    document.head.appendChild(el);
+  };
+  const loadScript=(src,onload)=>{
+    const el=document.createElement('script');
+    el.src=src;
+    if(onload)el.onload=onload;
+    document.body.appendChild(el);
+  };
+
+  addCss(`./layout-cleanup.css?v=${V}`);
+  addCss(`./tab-motion.css?v=${V}`);
+  addCss(`./title-number-scale.css?v=${V}`);
+  addCss(`./resume-refine.css?v=${V}`);
+  addCss(`./build-links.css?v=${V}`);
+  addCss(`./photo-gallery.css?v=${V}`);
+
+  loadScript(`./site-v2-legacy.js?v=${V}`,()=>{
+    loadScript(`./media-fix.js?v=${V}`,()=>{
+      loadScript(`./planning-docs.js?v=${V}`,()=>{
+        loadScript(`./mode-tabs.js?v=${V}`,()=>{
+          loadScript(`./build-links.js?v=${V}`,()=>{
+            loadScript(`./ai-preview.js?v=${V}`,()=>{
+              loadScript(`./photo-gallery.js?v=${V}`,()=>{
+                loadScript(`./photo-fit-fix.js?v=${V}`,()=>{
+                  loadScript(`./view-state.js?v=${V}`);
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+})();
