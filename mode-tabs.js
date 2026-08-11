@@ -104,10 +104,7 @@
     motionTimer=window.setTimeout(()=>tabs.classList.remove('is-moving-left','is-moving-right'),540);
   };
 
-  const setMode=(mode,{resetResumeScroll=false}={})=>{
-    const next=mode==='portfolio'?'portfolio':'resume';
-    const current=document.body.dataset.view==='portfolio'?'portfolio':'resume';
-    playModeMotion(current,next);
+  const applyMode=(next,{resetResumeScroll=false}={})=>{
     document.body.dataset.view=next;
     tabs.querySelectorAll('.mode-tab').forEach(btn=>{
       const active=btn.dataset.mode===next;
@@ -121,10 +118,58 @@
     }
   };
 
+  let activeViewTransition=null;
+  let fallbackTimer=0;
+  const playPanelMotion=(from,to,swap)=>{
+    const root=document.documentElement;
+    const reduceMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const ready=root.classList.contains('portfolio-ready');
+    if(from===to||reduceMotion||!ready){
+      swap();
+      return;
+    }
+
+    const directionClass=to==='portfolio'?'mode-swipe-to-portfolio':'mode-swipe-to-resume';
+    root.classList.remove('mode-swipe-to-portfolio','mode-swipe-to-resume');
+    root.classList.add(directionClass,'mode-panel-switching');
+
+    if(typeof document.startViewTransition==='function'){
+      activeViewTransition?.skipTransition?.();
+      const transition=document.startViewTransition(()=>swap());
+      activeViewTransition=transition;
+      transition.finished.finally(()=>{
+        if(activeViewTransition!==transition)return;
+        activeViewTransition=null;
+        root.classList.remove(directionClass,'mode-panel-switching');
+      });
+      return;
+    }
+
+    swap();
+    const incoming=to==='portfolio'?home:resume;
+    const fallbackClass=to==='portfolio'?'mode-panel-enter-right':'mode-panel-enter-left';
+    incoming.classList.remove('mode-panel-enter-right','mode-panel-enter-left');
+    void incoming.offsetWidth;
+    incoming.classList.add(fallbackClass);
+    clearTimeout(fallbackTimer);
+    fallbackTimer=window.setTimeout(()=>{
+      incoming.classList.remove(fallbackClass);
+      root.classList.remove(directionClass,'mode-panel-switching');
+    },540);
+  };
+
+  const setMode=(mode,{resetResumeScroll=false}={})=>{
+    const next=mode==='portfolio'?'portfolio':'resume';
+    const current=document.body.dataset.view==='portfolio'?'portfolio':'resume';
+    playModeMotion(current,next);
+    playPanelMotion(current,next,()=>applyMode(next,{resetResumeScroll}));
+  };
+
   window.__portfolioSetMode=setMode;
 
   /* The whole switch acts as one toggle: clicking either label or the gap flips modes. */
   tabs.addEventListener('click',()=>{
+    if(document.documentElement.classList.contains('mode-panel-switching'))return;
     const current=document.body.dataset.view==='portfolio'?'portfolio':'resume';
     const next=current==='portfolio'?'resume':'portfolio';
     setMode(next,{resetResumeScroll:next==='resume'});
