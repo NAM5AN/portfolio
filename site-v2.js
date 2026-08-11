@@ -1,5 +1,5 @@
 (()=>{
-  const V='20260812i';
+  const V='20260812j';
 
   /* Build the final contact grid immediately so the old four-cell layout never flashes. */
   const contact=document.querySelector('.resume-contact');
@@ -56,14 +56,16 @@
 
   loadScript(`./site-v2-legacy.js?v=${V}`,()=>{
     loadScript(`./media-fix.js?v=${V}`,()=>{
-      loadScript(`./planning-docs.js?v=${V}`,()=>{
-        loadScript(`./mode-tabs.js?v=${V}`,()=>{
-          loadScript(`./build-links.js?v=${V}`,()=>{
-            loadScript(`./ai-preview.js?v=${V}`,()=>{
-              loadScript(`./photo-gallery.js?v=${V}`,()=>{
-                loadScript(`./photo-fit-fix.js?v=${V}`,()=>{
-                  loadScript(`./modal-tabs.js?v=${V}`,()=>{
-                    loadScript(`./view-state.js?v=${V}`);
+      loadScript(`./worker-reel-fallback.js?v=${V}`,()=>{
+        loadScript(`./planning-docs.js?v=${V}`,()=>{
+          loadScript(`./mode-tabs.js?v=${V}`,()=>{
+            loadScript(`./build-links.js?v=${V}`,()=>{
+              loadScript(`./ai-preview.js?v=${V}`,()=>{
+                loadScript(`./photo-gallery.js?v=${V}`,()=>{
+                  loadScript(`./photo-fit-fix.js?v=${V}`,()=>{
+                    loadScript(`./modal-tabs.js?v=${V}`,()=>{
+                      loadScript(`./view-state.js?v=${V}`);
+                    });
                   });
                 });
               });
