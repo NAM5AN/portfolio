@@ -1,6 +1,7 @@
 /* Shared bottom tools bar + resume detail refinements */
 .site{
   grid-template-rows:52px minmax(0,1fr) 58px!important;
+  padding-bottom:0!important;
 }
 .bar{grid-row:1}
 .resume-home,
@@ -19,6 +20,7 @@ body[data-view="resume"] .resume-home{padding-bottom:0!important}
   height:58px!important;
   min-height:58px;
   margin:0!important;
+  align-self:stretch;
   display:block!important;
   z-index:8;
   background:rgba(248,247,242,.98);
