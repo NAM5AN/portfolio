@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812al';
+  const V='20260812ao';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -121,7 +121,6 @@
         ])
       : Promise.resolve();
 
-    // legacy 안의 오래된 hover 프리뷰 바인딩만 막고 나머지 모달 로직은 유지한다.
     const previewRows=[...document.querySelectorAll('.work-row[data-preview]')];
     previewRows.forEach(row=>{
       row.dataset.previewKey=row.dataset.preview;
@@ -145,7 +144,6 @@
       './modal-scroll-refine.js'
     ].map(src=>loadScript(`${src}?v=${V}`)));
 
-    // Featured / Video / Planning / Photo / Design / AI 프리뷰는 이 파일 하나가 전담한다.
     await Promise.all([
       loadScript(`./preview-final.js?v=${V}`),
       loadScript(`./photo-asset-bridge.js?v=${V}`),
