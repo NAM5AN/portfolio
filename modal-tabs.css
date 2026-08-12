@@ -1,11 +1,11 @@
 /* Portfolio detail modal cleanup + elastic text tabs */
 .section-modal .modal-shell{
-  grid-template-rows:72px minmax(0,1fr);
+  grid-template-rows:90px minmax(0,1fr);
 }
 .section-modal .modal-head{
   position:relative;
   justify-content:flex-end;
-  min-height:72px;
+  min-height:90px;
   padding:0 16px;
   border-bottom:1px solid var(--line);
   background:var(--paper);
@@ -16,6 +16,7 @@
 .section-modal .modal-head .close{
   width:36px;
   height:36px;
+  align-self:center;
   border:0;
   background:transparent;
   font-size:21px;
@@ -25,31 +26,24 @@
   color:var(--paper);
 }
 
-/* Fixed modal category navigator: equal arrow slots + fixed title block keep it truly centered. */
+/* Fixed modal category navigator: arrow / number / label / arrow all sit in fixed slots. */
 .modal-section-nav{
   position:absolute;
   left:50%;
-  top:0;
-  transform:translateX(-50%);
+  top:50%;
+  transform:translate(-50%,-50%);
   display:grid;
-  grid-template-columns:44px 190px 44px;
-  column-gap:16px;
+  grid-template-columns:46px 42px 154px 46px;
+  column-gap:14px;
   align-items:center;
   justify-items:center;
-  width:310px;
-  height:72px;
+  width:330px;
+  height:52px;
   z-index:2;
 }
-.modal-section-title{
-  display:grid;
-  grid-template-columns:42px 148px;
-  align-items:center;
-  width:190px;
-  height:100%;
-}
 .modal-section-arrow{
-  width:44px;
-  height:44px;
+  width:46px;
+  height:46px;
   display:grid;
   place-items:center;
   margin:0;
@@ -60,12 +54,13 @@
   color:var(--ink);
   font-size:0;
   line-height:1;
+  cursor:pointer;
   transition:transform 150ms ease;
 }
 .modal-section-arrow::before{
   display:block;
   font-family:Arial,sans-serif;
-  font-size:27px;
+  font-size:28px;
   font-weight:400;
   line-height:1;
 }
@@ -92,9 +87,10 @@
   font-weight:700!important;
   line-height:1;
   letter-spacing:0;
+  white-space:nowrap;
 }
 .modal-section-label{
-  width:148px;
+  width:154px;
   padding:0;
   text-align:center;
   color:var(--ink);
@@ -228,23 +224,19 @@
   }
 }
 @media(max-width:680px){
-  .section-modal .modal-shell{grid-template-rows:62px minmax(0,1fr)}
-  .section-modal .modal-head{min-height:62px;padding:0 10px}
+  .section-modal .modal-shell{grid-template-rows:78px minmax(0,1fr)}
+  .section-modal .modal-head{min-height:78px;padding:0 10px}
   .section-modal .modal-head .close{width:34px;height:34px}
   .modal-section-nav{
-    grid-template-columns:38px 180px 38px;
+    grid-template-columns:38px 34px 126px 38px;
     column-gap:12px;
-    width:280px;
-    height:62px;
-  }
-  .modal-section-title{
-    grid-template-columns:38px 142px;
-    width:180px;
+    width:272px;
+    height:46px;
   }
   .modal-section-arrow{width:38px;height:38px}
   .modal-section-arrow::before{font-size:24px}
-  .modal-section-no{width:38px;font-size:13px}
-  .modal-section-label{width:142px;font-size:15px}
+  .modal-section-no{width:34px;font-size:13px}
+  .modal-section-label{width:126px;font-size:15px}
   .elastic-tabset{gap:3px!important;margin:0 auto 16px!important}
   .elastic-tabset>button{padding:7px 8px!important;font-size:9px;min-height:32px}
   #planningModal .split-reader{
