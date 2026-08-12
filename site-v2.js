@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812ae';
+  const V='20260812af';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -44,7 +44,7 @@
   const remoteMode=typeof rawUrl==='function';
   const resolveAsset=href=>remoteMode?rawUrl(href):href;
   const rawBase=typeof window.__portfolioAssetBase==='string'?window.__portfolioAssetBase:'';
-  const photoPreview=rawBase?`${rawBase}assets/photo/thumb/snap/snap-01.webp`:'./assets/photo/thumb/snap/snap-01.webp';
+  const photoPreview=rawBase?`${rawBase}assets/photo/thumb/concept/concept-01.webp`:'./assets/photo/thumb/concept/concept-01.webp';
   [
     'https://i.ytimg.com/vi/jINNCqnUSL8/maxresdefault.jpg',
     'https://i.ytimg.com/vi/fY-a_4WTMnQ/maxresdefault.jpg',
@@ -137,6 +137,7 @@
       './modal-tabs.js',
       './modal-scroll-refine.js',
       './preview-controller.js',
+      './photo-preview-concept.js',
       './view-state.js'
     ];
     for(const src of scripts)await loadScript(`${src}?v=${V}`);
