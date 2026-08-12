@@ -1,10 +1,13 @@
 /* Resume PDF download action */
+.resume-intro{
+  margin-bottom:0!important;
+}
 .resume-download-link{
   display:inline-flex;
   align-items:center;
   gap:9px;
   width:max-content;
-  margin:16px 0 22px;
+  margin:12px 0;
   padding:9px 14px 10px;
   border:1px solid var(--ink);
   border-radius:999px;
@@ -16,6 +19,9 @@
   letter-spacing:-.01em;
   text-decoration:none;
   transition:transform .16s ease,background .16s ease,color .16s ease;
+}
+.resume-download-link + .resume-contact{
+  margin-top:0!important;
 }
 .resume-download-link::after{
   content:'↓';
@@ -34,7 +40,7 @@
 }
 @media(max-width:680px){
   .resume-download-link{
-    margin:14px 0 20px;
+    margin:10px 0;
     padding:9px 13px 10px;
   }
 }
