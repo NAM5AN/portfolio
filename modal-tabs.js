@@ -102,7 +102,20 @@
     if(modal?.open)sync(false);
   };
 
-  GROUPS.forEach(selector=>setup(document.querySelector(selector)));
+  const setupGroups=()=>GROUPS.forEach(selector=>setup(document.querySelector(selector)));
+  setupGroups();
+
+  /* photo-gallery.js and modal-tabs.js load in parallel, so the photo tabs may be inserted later. */
+  const photoModal=document.getElementById('photoModal');
+  if(photoModal&&!photoModal.querySelector('.photo-gallery-tabs')){
+    const photoTabObserver=new MutationObserver(()=>{
+      const tabs=photoModal.querySelector('.photo-gallery-tabs');
+      if(!tabs)return;
+      setup(tabs);
+      photoTabObserver.disconnect();
+    });
+    photoTabObserver.observe(photoModal,{childList:true,subtree:true});
+  }
 
   const MODALS=[
     {id:'featuredModal',no:'01',label:'Featured'},
