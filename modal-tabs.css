@@ -57,7 +57,7 @@
   width:max-content;
   max-width:100%;
   min-height:34px;
-  margin:0 0 20px!important;
+  margin:0 auto 20px!important;
   padding:0!important;
   border:0!important;
   background:transparent!important;
@@ -118,6 +118,28 @@
   display:none!important;
 }
 
+/* Design thumbnails are documents, not crops: preserve the entire source image. */
+#designModal .design-grid{
+  align-items:start!important;
+}
+#designModal .design-card{
+  aspect-ratio:auto!important;
+  height:auto!important;
+  background:transparent!important;
+}
+#designModal .design-card img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:100%!important;
+  object-fit:contain!important;
+  object-position:center top!important;
+  transform:none!important;
+}
+#designModal .design-card:hover img{
+  transform:none!important;
+}
+
 @media(max-width:980px){
   #planningModal .split-reader{
     grid-template-columns:minmax(330px,38%) minmax(0,1fr)!important;
@@ -127,7 +149,7 @@
 @media(max-width:680px){
   .section-modal .modal-shell{grid-template-rows:46px minmax(0,1fr)}
   .section-modal .modal-head{min-height:46px;padding:0 10px}
-  .elastic-tabset{gap:3px!important;margin-bottom:16px!important}
+  .elastic-tabset{gap:3px!important;margin:0 auto 16px!important}
   .elastic-tabset>button{padding:7px 8px!important;font-size:9px;min-height:32px}
   #planningModal .split-reader{
     grid-template-columns:1fr!important;
