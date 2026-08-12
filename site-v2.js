@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812as';
+  const V='20260812at';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -31,7 +31,36 @@
       <div><small>BIRTH</small><strong>2000.08.21</strong></div>
       <div><small>INSTAGRAM</small><strong><a href="https://www.instagram.com/5uu_uuu/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 @5uu_uuu 새 탭에서 열기">@5uu_uuu</a></strong></div>
       <div><small>AGE</small><strong id="resumeAge">${currentAge}세 (만 ${internationalAge}세)</strong></div>
-      <div><small>BLOG</small><strong><a href="https://blog.naver.com/tnwjd2854" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그 tnwjd2854 새 탭에서 열기">tnwjd2854</a></strong></div>`;
+      <div><small>EMAIL</small><strong><button class="resume-copy-email" type="button" data-copy-email="tnwjd2854@naver.com" aria-label="이메일 주소 tnwjd2854@naver.com 복사">tnwjd2854@naver.com</button></strong></div>`;
+
+    const emailButton=contact.querySelector('[data-copy-email]');
+    if(emailButton){
+      emailButton.addEventListener('click',async()=>{
+        const email=emailButton.dataset.copyEmail||'';
+        let copied=false;
+        try{
+          await navigator.clipboard.writeText(email);
+          copied=true;
+        }catch{
+          const area=document.createElement('textarea');
+          area.value=email;
+          area.setAttribute('readonly','');
+          area.style.position='fixed';
+          area.style.opacity='0';
+          document.body.appendChild(area);
+          area.select();
+          try{copied=document.execCommand('copy')}catch{}
+          area.remove();
+        }
+        if(!copied)return;
+        emailButton.classList.add('is-copied');
+        emailButton.setAttribute('aria-label','이메일 주소 복사됨');
+        window.setTimeout(()=>{
+          emailButton.classList.remove('is-copied');
+          emailButton.setAttribute('aria-label','이메일 주소 tnwjd2854@naver.com 복사');
+        },1200);
+      });
+    }
   }
 
   const site=document.querySelector('.site');
