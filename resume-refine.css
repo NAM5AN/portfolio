@@ -87,7 +87,7 @@ body[data-view="resume"] .resume-home{padding-bottom:0!important}
   justify-self:end!important;
 }
 
-/* Per-career calculated tenure. Source data is month-precision, so keep the date line unchanged. */
+/* Per-career calculated tenure. Source data is month-precision, so keep the date line unchanged on desktop. */
 .career-date{
   line-height:1.45;
 }
@@ -187,5 +187,23 @@ body[data-view="resume"] .resume-bullets{
   }
   body[data-view="resume"] .resume-career .resume-scroll{
     padding-top:14px!important;
+  }
+}
+
+@media(max-width:680px){
+  /* Mobile only: date range on the left, calculated tenure on the same row at right. */
+  .career-date{
+    display:flex!important;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:12px;
+    width:100%;
+    white-space:nowrap;
+  }
+  .career-tenure{
+    display:inline-block!important;
+    margin:0 0 0 auto!important;
+    text-align:right;
+    flex:0 0 auto;
   }
 }
