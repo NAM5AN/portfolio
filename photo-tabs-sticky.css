@@ -25,6 +25,13 @@
   transform:translateY(-50%);
   z-index:5;
 }
+
+/* modal-tabs.css hides generic div children in the modal head. Video/Design tabbars are divs, so explicitly restore them after moving them into the head. */
+#videoModal .modal-head > .tabbar,
+#designModal .modal-head > .tabbar{
+  display:flex!important;
+}
+
 #videoModal .tabbar,
 #photoModal .photo-gallery-tabs,
 #designModal .tabbar{
