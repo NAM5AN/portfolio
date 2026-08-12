@@ -3,6 +3,7 @@
   grid-template-rows:50px minmax(0,1fr);
 }
 .section-modal .modal-head{
+  position:relative;
   justify-content:flex-end;
   min-height:50px;
   padding:0 16px;
@@ -22,6 +23,58 @@
 .section-modal .modal-head .close:hover{
   background:var(--ink);
   color:var(--paper);
+}
+
+/* Fixed modal category navigator: number and label never shift with text length. */
+.modal-section-nav{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  display:grid;
+  grid-template-columns:34px 30px 118px 34px;
+  align-items:center;
+  width:216px;
+  height:40px;
+  z-index:2;
+}
+.modal-section-arrow{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:var(--ink);
+  font-size:18px;
+  line-height:1;
+  transition:background 160ms ease,transform 160ms ease;
+}
+.modal-section-arrow:hover{background:rgba(23,23,20,.07)}
+.modal-section-arrow:active{transform:scale(.94)}
+.modal-section-arrow:disabled{
+  visibility:hidden;
+  pointer-events:none;
+}
+.modal-section-no{
+  width:30px;
+  text-align:center;
+  color:var(--accent);
+  font:800 10px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.04em;
+}
+.modal-section-label{
+  width:118px;
+  padding-left:10px;
+  text-align:left;
+  color:var(--ink);
+  font-size:11px;
+  line-height:1;
+  font-weight:800;
+  white-space:nowrap;
 }
 
 /* Planning reader: give the index enough width for Korean titles and remove decorative red metadata. */
@@ -149,6 +202,15 @@
 @media(max-width:680px){
   .section-modal .modal-shell{grid-template-rows:46px minmax(0,1fr)}
   .section-modal .modal-head{min-height:46px;padding:0 10px}
+  .section-modal .modal-head .close{width:34px;height:34px}
+  .modal-section-nav{
+    grid-template-columns:32px 28px 108px 32px;
+    width:200px;
+    height:36px;
+  }
+  .modal-section-arrow{width:32px;height:32px;font-size:17px}
+  .modal-section-no{width:28px;font-size:9px}
+  .modal-section-label{width:108px;padding-left:8px;font-size:10px}
   .elastic-tabset{gap:3px!important;margin:0 auto 16px!important}
   .elastic-tabset>button{padding:7px 8px!important;font-size:9px;min-height:32px}
   #planningModal .split-reader{
@@ -184,4 +246,5 @@
 @media(prefers-reduced-motion:reduce){
   .elastic-tabset .elastic-tab-pill,
   .elastic-tabset>button{animation:none!important;transition:none!important}
+  .modal-section-arrow{transition:none!important}
 }
