@@ -3,6 +3,49 @@
   let restoring=true;
   let saveTimer=0;
 
+  const mountResumeHeader=()=>{
+    const intro=document.querySelector('.resume-intro');
+    if(!intro||document.querySelector('.resume-header-photo'))return;
+
+    if(!document.getElementById('resume-header-photo-style')){
+      const style=document.createElement('style');
+      style.id='resume-header-photo-style';
+      style.textContent=`
+        .resume-header-photo{
+          display:block;
+          width:calc(100% + clamp(48px,6vw,92px));
+          height:auto;
+          margin-top:calc(0px - clamp(24px,3vw,46px));
+          margin-left:calc(0px - clamp(24px,3vw,46px));
+          margin-bottom:26px;
+          max-width:none;
+          object-fit:cover;
+          object-position:center;
+          border:0;
+        }
+        @media(max-width:430px){
+          .resume-header-photo{
+            width:calc(100% + 36px);
+            margin-top:-22px;
+            margin-left:-18px;
+            margin-bottom:22px;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    const img=document.createElement('img');
+    img.className='resume-header-photo';
+    img.src='./assets/resume/header-cars.jpg';
+    img.alt='주차장을 위에서 촬영한 자동차 사진';
+    img.decoding='async';
+    img.loading='eager';
+    intro.before(img);
+  };
+
+  mountResumeHeader();
+
   const readState=()=>{
     try{
       const raw=sessionStorage.getItem(STORAGE_KEY);
