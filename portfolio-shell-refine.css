@@ -27,8 +27,23 @@ body[data-view="portfolio"] #work-index>.index-pane{
 }
 
 @media(max-width:900px){
+  /* The site chrome is viewport-fixed on mobile. Make the portfolio canvas
+     one explicit vertical scroll track so the hero can always scroll away
+     and reveal the work index below it. */
   body[data-view="portfolio"] #work-index.home{
-    overflow:auto!important;
+    display:block!important;
+    height:100%!important;
+    min-height:0!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    overscroll-behavior-y:contain;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-y;
+  }
+  body[data-view="portfolio"] #work-index>.hero-pane,
+  body[data-view="portfolio"] #work-index>.index-pane{
+    width:100%!important;
+    flex:none!important;
   }
   body[data-view="portfolio"] #work-index>.hero-pane{
     border-right:0!important;
