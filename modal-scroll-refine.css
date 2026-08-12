@@ -31,6 +31,31 @@
 @media(max-width:900px){
   .modal-scroll-indicator{width:3px}
 }
+
+/* Featured thumbnails: on mobile always show the full 16:9 frame. */
+@media(max-width:680px){
+  #featuredModal .feature-image{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    aspect-ratio:16/9!important;
+    overflow:hidden!important;
+    background:#111!important;
+  }
+  #featuredModal .feature-image img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+    object-position:center!important;
+    transform:none!important;
+  }
+  #featuredModal .feature-image:hover img{
+    transform:none!important;
+  }
+}
+
 @media(prefers-reduced-motion:reduce){
   .modal-scroll-indicator{transition:none}
 }
