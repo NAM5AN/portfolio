@@ -13,11 +13,13 @@
 .index-preview .design-preview-duo img{
   position:relative!important;
   inset:auto!important;
+  place-self:center!important;
   display:block!important;
-  width:100%!important;
-  height:100%!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:100%!important;
   min-width:0!important;
-  max-width:none!important;
   object-fit:contain!important;
   object-position:center!important;
   background:#0d0d0c;
