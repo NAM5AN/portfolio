@@ -5,43 +5,101 @@
 
   const mountResumeHeader=()=>{
     const intro=document.querySelector('.resume-intro');
-    if(!intro||document.querySelector('.resume-header-photo'))return;
+    if(!intro||document.querySelector('.resume-header-wrap'))return;
 
     if(!document.getElementById('resume-header-photo-style')){
       const style=document.createElement('style');
       style.id='resume-header-photo-style';
       style.textContent=`
-        .resume-header-photo{
+        .resume-header-wrap{
+          position:relative;
           display:block;
           width:calc(100% + clamp(48px,6vw,92px));
-          height:auto;
           margin-top:calc(0px - clamp(24px,3vw,46px));
           margin-left:calc(0px - clamp(24px,3vw,46px));
           margin-bottom:26px;
+        }
+        .resume-header-photo{
+          display:block;
+          width:100%;
+          height:auto;
           max-width:none;
           object-fit:cover;
           object-position:center;
           border:0;
         }
+        .resume-profile-photo{
+          position:absolute;
+          left:clamp(58px,7.4vw,94px);
+          bottom:0;
+          width:clamp(92px,8.4vw,118px);
+          aspect-ratio:1;
+          transform:translateY(50%);
+          border-radius:50%;
+          object-fit:cover;
+          object-position:center;
+          border:5px solid var(--paper,#f8f7f2);
+          background:var(--paper,#f8f7f2);
+          box-shadow:0 8px 24px rgba(23,23,20,.16);
+          z-index:3;
+          opacity:0;
+          visibility:hidden;
+          transition:opacity .16s ease;
+        }
+        .resume-profile-photo.is-loaded{
+          opacity:1;
+          visibility:visible;
+        }
+        .resume-header-wrap.has-profile + .resume-intro{
+          margin-top:clamp(74px,7vw,92px);
+        }
         @media(max-width:430px){
-          .resume-header-photo{
+          .resume-header-wrap{
             width:calc(100% + 36px);
             margin-top:-22px;
             margin-left:-18px;
             margin-bottom:22px;
+          }
+          .resume-profile-photo{
+            left:24px;
+            width:84px;
+            border-width:4px;
+          }
+          .resume-header-wrap.has-profile + .resume-intro{
+            margin-top:60px;
           }
         }
       `;
       document.head.appendChild(style);
     }
 
-    const img=document.createElement('img');
-    img.className='resume-header-photo';
-    img.src='./assets/resume/header-cars.jpg';
-    img.alt='주차장을 위에서 촬영한 자동차 사진';
-    img.decoding='async';
-    img.loading='eager';
-    intro.before(img);
+    const wrap=document.createElement('div');
+    wrap.className='resume-header-wrap';
+
+    const header=document.createElement('img');
+    header.className='resume-header-photo';
+    header.src='./assets/resume/header-cars.jpg';
+    header.alt='주차장을 위에서 촬영한 자동차 사진';
+    header.decoding='async';
+    header.loading='eager';
+
+    const profile=document.createElement('img');
+    profile.className='resume-profile-photo';
+    profile.src='./assets/resume/profile.jpg';
+    profile.alt='김수정 프로필 사진';
+    profile.decoding='async';
+    profile.loading='eager';
+    profile.addEventListener('load',()=>{
+      profile.classList.add('is-loaded');
+      wrap.classList.add('has-profile');
+    });
+    profile.addEventListener('error',()=>{
+      profile.classList.remove('is-loaded');
+      wrap.classList.remove('has-profile');
+    });
+
+    wrap.append(header,profile);
+    intro.before(wrap);
   };
 
   mountResumeHeader();
