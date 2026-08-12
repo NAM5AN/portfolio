@@ -1,14 +1,26 @@
 (()=>{
-  const modal=document.getElementById('photoModal');
-  const head=modal?.querySelector('.modal-head');
-  const tabs=modal?.querySelector('.photo-gallery-tabs');
-  if(!modal||!head||!tabs)return;
+  const configs=[
+    {modalId:'videoModal',selector:'.tabbar'},
+    {modalId:'photoModal',selector:'.photo-gallery-tabs'},
+    {modalId:'designModal',selector:'.tabbar'}
+  ];
 
-  head.appendChild(tabs);
-  tabs.classList.add('photo-tabs-in-head');
+  let moved=false;
+  configs.forEach(({modalId,selector})=>{
+    const modal=document.getElementById(modalId);
+    const head=modal?.querySelector('.modal-head');
+    const tabs=modal?.querySelector(selector);
+    if(!modal||!head||!tabs)return;
 
-  /* Re-measure the elastic pill after reparenting so its position stays exact. */
-  requestAnimationFrame(()=>{
-    window.dispatchEvent(new Event('resize'));
+    head.appendChild(tabs);
+    tabs.classList.add('modal-tabs-in-head');
+    moved=true;
   });
+
+  /* Re-measure all elastic pills after reparenting so their positions stay exact. */
+  if(moved){
+    requestAnimationFrame(()=>{
+      window.dispatchEvent(new Event('resize'));
+    });
+  }
 })();
