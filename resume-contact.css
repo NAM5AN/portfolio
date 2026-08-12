@@ -1,11 +1,21 @@
 /* Resume contact / social links */
-.resume-contact a{
+.resume-contact a,
+.resume-contact .resume-copy-email{
   display:inline-flex;
   align-items:center;
   gap:7px;
   color:inherit;
   text-decoration:none;
   transition:color 180ms ease,transform 180ms ease;
+}
+.resume-contact .resume-copy-email{
+  padding:0;
+  border:0;
+  background:none;
+  font:inherit;
+  line-height:inherit;
+  text-align:left;
+  cursor:copy;
 }
 .resume-contact a::after{
   content:"↗";
@@ -16,29 +26,50 @@
   transform:translateY(-1px);
   transition:transform 180ms cubic-bezier(.2,.8,.25,1.2),opacity 180ms ease;
 }
+.resume-contact .resume-copy-email::after{
+  content:"⧉";
+  font-size:.72em;
+  font-weight:600;
+  line-height:1;
+  opacity:.5;
+  transform:translateY(-1px);
+  transition:transform 180ms cubic-bezier(.2,.8,.25,1.2),opacity 180ms ease;
+}
 .resume-contact a:hover,
-.resume-contact a:focus-visible{
+.resume-contact a:focus-visible,
+.resume-contact .resume-copy-email:hover,
+.resume-contact .resume-copy-email:focus-visible,
+.resume-contact .resume-copy-email.is-copied{
   color:var(--accent);
 }
 .resume-contact a:hover::after,
-.resume-contact a:focus-visible::after{
+.resume-contact a:focus-visible::after,
+.resume-contact .resume-copy-email:hover::after,
+.resume-contact .resume-copy-email:focus-visible::after,
+.resume-contact .resume-copy-email.is-copied::after{
   opacity:1;
-  transform:translate(2px,-3px);
+  transform:translate(2px,-2px);
 }
-.resume-contact a:focus-visible{
+.resume-contact .resume-copy-email.is-copied::after{
+  content:"✓";
+}
+.resume-contact a:focus-visible,
+.resume-contact .resume-copy-email:focus-visible{
   outline:1px solid currentColor;
   outline-offset:4px;
 }
 
-/* Six information cells: LOCATION|CONTACT, BIRTH|INSTAGRAM, AGE|BLOG */
+/* Six information cells: LOCATION|CONTACT, BIRTH|INSTAGRAM, AGE|EMAIL */
 .resume-contact > div{
   min-width:0;
 }
 .resume-contact strong,
-.resume-contact a{
+.resume-contact a,
+.resume-contact .resume-copy-email{
   overflow-wrap:anywhere;
 }
 
 @media(max-width:900px){
-  .resume-contact a::after{opacity:.7}
+  .resume-contact a::after,
+  .resume-contact .resume-copy-email::after{opacity:.7}
 }
