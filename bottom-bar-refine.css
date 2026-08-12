@@ -96,19 +96,20 @@
   .resume-scroll-indicator{transition:none}
 }
 
-/* Neutral grayscale theme: keep the red accent, remove all beige warmth. */
+/* Bright neutral grayscale theme. Red accent stays unchanged. */
 :root{
-  --bg:#eeeeee!important;
-  --paper:#f7f7f7!important;
-  --ink:#171717!important;
-  --muted:#707070!important;
-  --line:#d0d0d0!important;
-  --shadow:0 28px 90px rgba(0,0,0,.16)!important;
+  --bg:#f1f2f3!important;
+  --paper:#fafafa!important;
+  --ink:#161718!important;
+  --muted:#62676d!important;
+  --line:#b9bec4!important;
+  --shadow:0 24px 72px rgba(0,0,0,.13)!important;
 }
 
 html body{
-  background-color:#eeeeee!important;
-  color:#171717!important;
+  background-color:#f1f2f3!important;
+  background-image:linear-gradient(rgba(0,0,0,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.022) 1px,transparent 1px)!important;
+  color:#161718!important;
 }
 
 html body .resume-home,
@@ -117,22 +118,22 @@ html body .hero-pane,
 html body .index-pane,
 html body .section-modal,
 html body .detail-viewer{
-  background:rgba(247,247,247,.97)!important;
+  background:rgba(250,250,250,.985)!important;
 }
 
 html body .section-modal .modal-head,
 html body .site>.site-tools-bar,
 html body[data-view="resume"] .resume-profile-bottom{
-  background:rgba(247,247,247,.98)!important;
+  background:rgba(250,250,250,.99)!important;
 }
 
 html body .mode-tabs{
-  background:#e8e8e8!important;
+  background:#eceeef!important;
 }
 html body .work-row:hover,
 html body .work-row.active,
 html body .doc-button.active{
-  background:#e9e9e9!important;
+  background:#eef0f2!important;
 }
 
 html body .feature-card,
@@ -147,11 +148,11 @@ html body .project-tabs button,
 html body .embedded-doc-note,
 html body .photo-series-card,
 html body .reel-card{
-  background:#fafafa!important;
+  background:#fcfcfc!important;
 }
 
 html body .doc-callout{
-  background:#ededed!important;
+  background:#f0f1f2!important;
 }
 
 html body .index-preview,
