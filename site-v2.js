@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812at';
+  const V='20260812au';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -13,6 +13,7 @@
   document.querySelectorAll('.section-modal .modal-head>div').forEach(node=>node.remove());
   document.querySelector('.migration-note')?.remove();
   document.querySelectorAll('#featuredModal .modal-body>.lead,#photoModal .modal-body>.lead,#buildModal .modal-body>.lead').forEach(node=>node.remove());
+  document.querySelector('.resume-note')?.remove();
 
   const heroSummary=document.querySelector('.hero-summary');
   if(heroSummary)heroSummary.textContent='영상 제작을 중심으로 기획, 촬영, 편집, 사진, 실무 디자인을 다룹니다. 기계 및 프로그램을 쉽게 익히며, AI를 능숙하게 사용합니다.';
