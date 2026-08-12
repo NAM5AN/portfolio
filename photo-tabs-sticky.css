@@ -1,23 +1,33 @@
-/* Photography modal: keep section navigation and category pill tabs together in one fixed header. */
-#photoModal .modal-shell{
+/* Video / Photography / Design modals: keep section navigation and pill tabs together in one fixed header. */
+#videoModal .modal-shell,
+#photoModal .modal-shell,
+#designModal .modal-shell{
   grid-template-rows:136px minmax(0,1fr)!important;
 }
-#photoModal .modal-head{
+#videoModal .modal-head,
+#photoModal .modal-head,
+#designModal .modal-head{
   min-height:136px!important;
   padding:0 16px!important;
 }
-#photoModal .modal-section-nav{
+#videoModal .modal-section-nav,
+#photoModal .modal-section-nav,
+#designModal .modal-section-nav{
   top:26px!important;
   transform:translateX(-50%)!important;
 }
-#photoModal .modal-head .close{
+#videoModal .modal-head .close,
+#photoModal .modal-head .close,
+#designModal .modal-head .close{
   position:absolute;
   top:34px;
   right:16px;
   transform:translateY(-50%);
   z-index:5;
 }
-#photoModal .photo-gallery-tabs{
+#videoModal .tabbar,
+#photoModal .photo-gallery-tabs,
+#designModal .tabbar{
   position:absolute!important;
   left:50%;
   right:auto;
@@ -34,44 +44,64 @@
   border-bottom:0!important;
   background:transparent!important;
 }
-#photoModal .photo-gallery-tabs.elastic-tabset{
+#videoModal .tabbar.elastic-tabset,
+#photoModal .photo-gallery-tabs.elastic-tabset,
+#designModal .tabbar.elastic-tabset{
   min-height:34px;
   overflow:visible!important;
 }
-#photoModal .photo-gallery-tabs.elastic-tabset .elastic-tab-pill{
+#videoModal .tabbar.elastic-tabset .elastic-tab-pill,
+#photoModal .photo-gallery-tabs.elastic-tabset .elastic-tab-pill,
+#designModal .tabbar.elastic-tabset .elastic-tab-pill{
   top:0;
   bottom:0;
 }
 #photoModal .photo-gallery-tabs .photo-gallery-tab::after{
   display:none!important;
 }
-#photoModal .modal-body{
+#videoModal .modal-body,
+#photoModal .modal-body,
+#designModal .modal-body{
   padding-top:10px!important;
 }
 
 @media(max-width:680px){
-  #photoModal .modal-shell{
+  #videoModal .modal-shell,
+  #photoModal .modal-shell,
+  #designModal .modal-shell{
     grid-template-rows:122px minmax(0,1fr)!important;
   }
-  #photoModal .modal-head{
+  #videoModal .modal-head,
+  #photoModal .modal-head,
+  #designModal .modal-head{
     min-height:122px!important;
     padding:0 10px!important;
   }
-  #photoModal .modal-section-nav{
+  #videoModal .modal-section-nav,
+  #photoModal .modal-section-nav,
+  #designModal .modal-section-nav{
     top:18px!important;
   }
-  #photoModal .modal-head .close{
+  #videoModal .modal-head .close,
+  #photoModal .modal-head .close,
+  #designModal .modal-head .close{
     top:28px;
     right:10px;
   }
-  #photoModal .photo-gallery-tabs{
+  #videoModal .tabbar,
+  #photoModal .photo-gallery-tabs,
+  #designModal .tabbar{
     bottom:10px;
     max-width:calc(100% - 28px)!important;
   }
-  #photoModal .photo-gallery-tabs.elastic-tabset{
+  #videoModal .tabbar.elastic-tabset,
+  #photoModal .photo-gallery-tabs.elastic-tabset,
+  #designModal .tabbar.elastic-tabset{
     min-height:32px;
   }
-  #photoModal .modal-body{
+  #videoModal .modal-body,
+  #photoModal .modal-body,
+  #designModal .modal-body{
     padding-top:8px!important;
   }
 }
