@@ -7,8 +7,11 @@
   justify-content:flex-end;
   min-height:90px;
   padding:0 16px;
-  border-bottom:1px solid var(--line);
+  border-bottom:0;
   background:var(--paper);
+}
+.section-modal .modal-body{
+  padding-top:18px;
 }
 .section-modal .modal-head>div{
   display:none!important;
@@ -226,6 +229,7 @@
 @media(max-width:680px){
   .section-modal .modal-shell{grid-template-rows:78px minmax(0,1fr)}
   .section-modal .modal-head{min-height:78px;padding:0 10px}
+  .section-modal .modal-body{padding-top:12px}
   .section-modal .modal-head .close{width:34px;height:34px}
   .modal-section-nav{
     grid-template-columns:38px 34px 126px 38px;
