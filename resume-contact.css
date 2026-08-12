@@ -72,4 +72,13 @@
 @media(max-width:900px){
   .resume-contact a::after,
   .resume-contact .resume-copy-email::after{opacity:.7}
+
+  /* On mobile the 2×3 desktop grid becomes one column, so every row needs a separator. */
+  .resume-contact>div{
+    border-left:0!important;
+    border-top:0!important;
+  }
+  .resume-contact>div+div{
+    border-top:1px solid var(--line)!important;
+  }
 }
