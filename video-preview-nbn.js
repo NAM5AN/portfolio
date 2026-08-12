@@ -4,14 +4,14 @@
   const caption=document.getElementById('previewCaption');
   if(!row||!preview||!caption)return;
 
-  const src='https://i.ytimg.com/vi/dI_J-0qeb5A/maxresdefault.jpg';
+  const src='https://i.ytimg.com/vi/TPrPnkTMmTo/maxresdefault.jpg';
   const apply=()=>{
     const split=document.querySelector('.design-preview-duo');
     if(split)split.remove();
     preview.style.display='block';
     preview.src=src;
     preview.style.opacity='.88';
-    caption.textContent='VIDEO / NBN · 기자의 시선';
+    caption.textContent='VIDEO / FILM · 소확행';
   };
 
   ['pointerenter','mouseenter','focus','click','touchstart'].forEach(type=>{
