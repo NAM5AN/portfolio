@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812ak';
+  const V='20260812al';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -121,7 +121,7 @@
         ])
       : Promise.resolve();
 
-    // legacy 파일 안에 남아 있는 오래된 hover 프리뷰 바인딩만 막는다.
+    // legacy 안의 오래된 hover 프리뷰 바인딩만 막고 나머지 모달 로직은 유지한다.
     const previewRows=[...document.querySelectorAll('.work-row[data-preview]')];
     previewRows.forEach(row=>{
       row.dataset.previewKey=row.dataset.preview;
@@ -133,7 +133,6 @@
       delete row.dataset.previewKey;
     });
 
-    // 서로 의존하지 않는 기능은 동시에 내려받고 실행한다.
     await Promise.all([
       './brochure-book.js',
       './design-lightbox.js',
@@ -143,11 +142,10 @@
       './build-links.js',
       './photo-gallery.js',
       './modal-tabs.js',
-      './modal-scroll-refine.js',
-      './preview-controller.js'
+      './modal-scroll-refine.js'
     ].map(src=>loadScript(`${src}?v=${V}`)));
 
-    // 기존 AI 프리뷰 컨트롤러 뒤에서 최종 프리뷰 규칙을 한 번만 적용한다.
+    // Featured / Video / Planning / Photo / Design / AI 프리뷰는 이 파일 하나가 전담한다.
     await Promise.all([
       loadScript(`./preview-final.js?v=${V}`),
       loadScript(`./photo-asset-bridge.js?v=${V}`),
