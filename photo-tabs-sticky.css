@@ -1,39 +1,77 @@
-/* Photography modal: centered elastic pill tabs that stay visible while the gallery scrolls. */
+/* Photography modal: keep section navigation and category pill tabs together in one fixed header. */
+#photoModal .modal-shell{
+  grid-template-rows:136px minmax(0,1fr)!important;
+}
+#photoModal .modal-head{
+  min-height:136px!important;
+  padding:0 16px!important;
+}
+#photoModal .modal-section-nav{
+  top:26px!important;
+  transform:translateX(-50%)!important;
+}
+#photoModal .modal-head .close{
+  position:absolute;
+  top:34px;
+  right:16px;
+  transform:translateY(-50%);
+  z-index:5;
+}
 #photoModal .photo-gallery-tabs{
-  position:sticky!important;
-  top:0;
-  z-index:20;
-  width:100%!important;
-  max-width:none!important;
+  position:absolute!important;
+  left:50%;
+  right:auto;
+  top:auto!important;
+  bottom:14px;
+  transform:translateX(-50%);
+  z-index:4;
+  width:max-content!important;
+  max-width:calc(100% - 96px)!important;
   justify-content:center!important;
-  margin:0 0 16px!important;
-  padding:10px 0!important;
+  margin:0!important;
+  padding:0!important;
   border:0!important;
   border-bottom:0!important;
-  background:var(--paper)!important;
+  background:transparent!important;
 }
 #photoModal .photo-gallery-tabs.elastic-tabset{
-  min-height:54px;
+  min-height:34px;
   overflow:visible!important;
 }
 #photoModal .photo-gallery-tabs.elastic-tabset .elastic-tab-pill{
-  top:10px;
-  bottom:10px;
+  top:0;
+  bottom:0;
 }
 #photoModal .photo-gallery-tabs .photo-gallery-tab::after{
   display:none!important;
 }
+#photoModal .modal-body{
+  padding-top:10px!important;
+}
 
 @media(max-width:680px){
+  #photoModal .modal-shell{
+    grid-template-rows:122px minmax(0,1fr)!important;
+  }
+  #photoModal .modal-head{
+    min-height:122px!important;
+    padding:0 10px!important;
+  }
+  #photoModal .modal-section-nav{
+    top:18px!important;
+  }
+  #photoModal .modal-head .close{
+    top:28px;
+    right:10px;
+  }
   #photoModal .photo-gallery-tabs{
-    margin-bottom:12px!important;
-    padding:8px 0!important;
+    bottom:10px;
+    max-width:calc(100% - 28px)!important;
   }
   #photoModal .photo-gallery-tabs.elastic-tabset{
-    min-height:48px;
+    min-height:32px;
   }
-  #photoModal .photo-gallery-tabs.elastic-tabset .elastic-tab-pill{
-    top:8px;
-    bottom:8px;
+  #photoModal .modal-body{
+    padding-top:8px!important;
   }
 }
