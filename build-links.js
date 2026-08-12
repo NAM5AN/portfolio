@@ -14,7 +14,12 @@
     }
   };
 
+  const cleanBuildLabels=()=>{
+    document.querySelectorAll('#buildModal .build-case .meta').forEach(node=>node.remove());
+  };
+
   const addLinks=()=>{
+    cleanBuildLabels();
     document.querySelectorAll('#buildModal .build-case').forEach(card=>{
       if(card.querySelector('.project-live-link')) return;
       const title=card.querySelector('h3')?.textContent.trim();
