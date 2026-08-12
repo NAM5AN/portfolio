@@ -51,6 +51,16 @@ body .resume-career{grid-template-rows:1fr}
 /* Removed hero microcopy should not leave artificial vertical space. */
 .hero-copy{margin:auto 0}
 
+/* Portfolio motto: always keep the requested four-line composition. */
+body[data-view="portfolio"] .hero-motto{
+  font-size:clamp(24px,5.3vw,78px);
+}
+body[data-view="portfolio"] .hero-motto>.motto-line,
+body[data-view="portfolio"] .hero-motto>.motto-phrase{
+  display:block;
+  white-space:nowrap;
+}
+
 /* Portfolio work index: compact 2 x 3 grid + a real 16:9 preview. */
 body[data-view="portfolio"] .index-pane{
   grid-template-rows:auto auto auto;
