@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812az';
+  const V='20260812ba';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -63,6 +63,15 @@
       });
     }
   }
+
+  const resumeStats=document.querySelector('.resume-stats');
+  if(resumeStats){
+    resumeStats.innerHTML=`
+      <div class="resume-stat"><strong id="resumeNetCareer">-</strong><span>중복기간 제외 경력</span></div>
+      <div class="resume-stat resume-stat-gear"><strong>Canon R6 II</strong><span>RF 24mm 4.0L</span></div>`;
+  }
+  const gearLine=document.querySelector('.resume-gear');
+  if(gearLine)gearLine.textContent='개인 장비 · Canon R6 II · RF 24mm 4.0L';
 
   const site=document.querySelector('.site');
   const tools=document.querySelector('.resume-profile-bottom');
