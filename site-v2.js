@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812aj';
+  const V='20260812ak';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -42,18 +42,13 @@
   }
 
   const remoteMode=typeof rawUrl==='function';
-  const resolveAsset=href=>remoteMode?rawUrl(href):href;
   const rawBase=typeof window.__portfolioAssetBase==='string'?window.__portfolioAssetBase:'';
-  const photoPreview=rawBase?`${rawBase}assets/photo/thumb/concept/concept-01.webp`:'./assets/photo/thumb/concept/concept-01.webp';
-  [
-    'https://i.ytimg.com/vi/jINNCqnUSL8/maxresdefault.jpg',
-    'https://i.ytimg.com/vi/dI_J-0qeb5A/maxresdefault.jpg',
-    'https://i.ytimg.com/vi/TPrPnkTMmTo/maxresdefault.jpg',
-    'https://i.ytimg.com/vi/RRaPlueNU8Y/maxresdefault.jpg',
-    photoPreview,
-    'https://drive.google.com/thumbnail?id=1IMS882egUEvxo32byMvxnYUVQnDglh0x&sz=w1600',
-    'https://drive.google.com/thumbnail?id=1SvFvq5mPlbk2Oe5BR-gupfrxJu80-fmM&sz=w1600'
-  ].forEach(src=>{const img=new Image();img.decoding='async';img.src=src});
+  const clean=href=>href.replace(/^\.\//,'').replace(/^\//,'');
+  const resolveAsset=href=>{
+    if(!remoteMode)return href;
+    if(rawBase)return `${rawBase}${clean(href)}`;
+    return rawUrl(href);
+  };
 
   const loadCss=href=>new Promise(resolve=>{
     if(!remoteMode){
@@ -65,7 +60,7 @@
       document.head.appendChild(el);
       return;
     }
-    fetch(resolveAsset(href),{cache:'no-store'})
+    fetch(resolveAsset(href),{cache:'default'})
       .then(r=>{if(!r.ok)throw new Error(`${href}: ${r.status}`);return r.text()})
       .then(css=>{
         const el=document.createElement('style');
@@ -86,7 +81,7 @@
       document.body.appendChild(el);
       return;
     }
-    fetch(resolveAsset(src),{cache:'no-store'})
+    fetch(resolveAsset(src),{cache:'default'})
       .then(r=>{if(!r.ok)throw new Error(`${src}: ${r.status}`);return r.text()})
       .then(code=>{
         const el=document.createElement('script');
@@ -126,8 +121,20 @@
         ])
       : Promise.resolve();
 
-    const scripts=[
-      './site-v2-legacy.js',
+    // legacy 파일 안에 남아 있는 오래된 hover 프리뷰 바인딩만 막는다.
+    const previewRows=[...document.querySelectorAll('.work-row[data-preview]')];
+    previewRows.forEach(row=>{
+      row.dataset.previewKey=row.dataset.preview;
+      row.removeAttribute('data-preview');
+    });
+    await loadScript(`./site-v2-legacy.js?v=${V}`);
+    previewRows.forEach(row=>{
+      row.dataset.preview=row.dataset.previewKey;
+      delete row.dataset.previewKey;
+    });
+
+    // 서로 의존하지 않는 기능은 동시에 내려받고 실행한다.
+    await Promise.all([
       './brochure-book.js',
       './design-lightbox.js',
       './media-fix.js',
@@ -135,23 +142,23 @@
       './planning-docs.js',
       './build-links.js',
       './photo-gallery.js',
-      './photo-asset-bridge.js',
-      './photo-fit-fix.js',
       './modal-tabs.js',
       './modal-scroll-refine.js',
-      './preview-controller.js',
-      './planning-preview-startup.js',
-      './photo-preview-concept.js',
-      './design-preview-duo.js',
-      './featured-preview-nbn.js',
-      './video-preview-nbn.js',
-      './view-state.js'
-    ];
-    for(const src of scripts)await loadScript(`${src}?v=${V}`);
+      './preview-controller.js'
+    ].map(src=>loadScript(`${src}?v=${V}`)));
+
+    // 기존 AI 프리뷰 컨트롤러 뒤에서 최종 프리뷰 규칙을 한 번만 적용한다.
+    await Promise.all([
+      loadScript(`./preview-final.js?v=${V}`),
+      loadScript(`./photo-asset-bridge.js?v=${V}`),
+      loadScript(`./photo-fit-fix.js?v=${V}`)
+    ]);
+
+    await loadScript(`./view-state.js?v=${V}`);
 
     await Promise.race([
       fontReady,
-      new Promise(resolve=>setTimeout(resolve,1200))
+      new Promise(resolve=>setTimeout(resolve,800))
     ]).catch(()=>{});
   }catch(err){
     console.error('[portfolio] initialization error',err);
