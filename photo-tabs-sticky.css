@@ -1,24 +1,17 @@
-/* Video / Photography / Design modals: keep section navigation and pill tabs together in one fixed header. */
-#videoModal .modal-shell,
-#photoModal .modal-shell,
-#designModal .modal-shell{
+/* All portfolio detail modals share the same fixed header height.
+   Tabbed modals use the lower half for pill tabs; non-tabbed modals keep it as clean breathing room. */
+.section-modal .modal-shell{
   grid-template-rows:136px minmax(0,1fr)!important;
 }
-#videoModal .modal-head,
-#photoModal .modal-head,
-#designModal .modal-head{
+.section-modal .modal-head{
   min-height:136px!important;
   padding:0 16px!important;
 }
-#videoModal .modal-section-nav,
-#photoModal .modal-section-nav,
-#designModal .modal-section-nav{
+.section-modal .modal-section-nav{
   top:26px!important;
   transform:translateX(-50%)!important;
 }
-#videoModal .modal-head .close,
-#photoModal .modal-head .close,
-#designModal .modal-head .close{
+.section-modal .modal-head .close{
   position:absolute;
   top:34px;
   right:16px;
@@ -66,32 +59,22 @@
 #photoModal .photo-gallery-tabs .photo-gallery-tab::after{
   display:none!important;
 }
-#videoModal .modal-body,
-#photoModal .modal-body,
-#designModal .modal-body{
+.section-modal .modal-body{
   padding-top:10px!important;
 }
 
 @media(max-width:680px){
-  #videoModal .modal-shell,
-  #photoModal .modal-shell,
-  #designModal .modal-shell{
+  .section-modal .modal-shell{
     grid-template-rows:122px minmax(0,1fr)!important;
   }
-  #videoModal .modal-head,
-  #photoModal .modal-head,
-  #designModal .modal-head{
+  .section-modal .modal-head{
     min-height:122px!important;
     padding:0 10px!important;
   }
-  #videoModal .modal-section-nav,
-  #photoModal .modal-section-nav,
-  #designModal .modal-section-nav{
+  .section-modal .modal-section-nav{
     top:18px!important;
   }
-  #videoModal .modal-head .close,
-  #photoModal .modal-head .close,
-  #designModal .modal-head .close{
+  .section-modal .modal-head .close{
     top:28px;
     right:10px;
   }
@@ -106,9 +89,7 @@
   #designModal .tabbar.elastic-tabset{
     min-height:32px;
   }
-  #videoModal .modal-body,
-  #photoModal .modal-body,
-  #designModal .modal-body{
+  .section-modal .modal-body{
     padding-top:8px!important;
   }
 }
