@@ -137,7 +137,16 @@ body[data-view="portfolio"] .index-preview img{
 }
 
 @media(max-width:900px){
-  .bar{padding:0 4px}
+  /* Visual-only mobile top-bar override. Keep the existing fixed/scroll behavior untouched. */
+  .bar{
+    padding:0 4px!important;
+    border:0!important;
+    border-bottom:1px solid var(--line)!important;
+    border-radius:0!important;
+    background:transparent!important;
+    backdrop-filter:none!important;
+    box-shadow:none!important;
+  }
   .bar-right{margin-left:auto}
   body .resume-career{display:block}
   .resume-section-title.career-heading-row{
