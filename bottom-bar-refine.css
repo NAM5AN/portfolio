@@ -65,6 +65,25 @@
 }
 .resume-scroll-indicator.is-visible{opacity:1}
 
+/* Resume summary: only career and personal camera gear remain. */
+.resume-stats{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-rows:1fr!important;
+  gap:0!important;
+}
+.resume-stats>.resume-stat{
+  border-bottom:0!important;
+}
+.resume-stats>.resume-stat:nth-child(n+3){display:none!important}
+.resume-stats>.resume-stat:nth-child(2){
+  border-left:1px solid var(--line)!important;
+  padding-left:12px!important;
+}
+.resume-stat.resume-stat-gear strong{
+  font-size:clamp(22px,2vw,28px)!important;
+  white-space:nowrap;
+}
+
 @media(min-width:901px){
   .site{
     grid-template-rows:52px minmax(0,1fr) 58px!important;
@@ -90,6 +109,35 @@
     row-gap:6px;
   }
   .site > .site-tools-bar .resume-gear{text-align:left;white-space:normal}
+
+  /* Keep 01 + 경력 + total career on a single row on mobile. */
+  .resume-section-title.career-heading-row{
+    display:grid!important;
+    grid-template-columns:auto auto minmax(0,1fr)!important;
+    align-items:center!important;
+    column-gap:10px!important;
+  }
+  .resume-section-title.career-heading-row>span{
+    grid-column:1!important;
+    grid-row:1!important;
+  }
+  .resume-section-title.career-heading-row>h3{
+    grid-column:2!important;
+    grid-row:1!important;
+  }
+  .resume-section-title.career-heading-row .career-total{
+    grid-column:3!important;
+    grid-row:1!important;
+    justify-self:end!important;
+    align-self:center!important;
+    max-width:none!important;
+    margin:0!important;
+    text-align:right!important;
+    white-space:nowrap!important;
+  }
+  .resume-section-title.career-heading-row .career-total span{font-size:7px!important}
+  .resume-section-title.career-heading-row .career-total strong{font-size:10px!important}
+  .resume-section-title.career-heading-row .career-total small{font-size:8px!important}
 }
 
 @media(prefers-reduced-motion:reduce){
