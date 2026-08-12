@@ -188,6 +188,55 @@ body[data-view="resume"] .resume-bullets{
   body[data-view="resume"] .resume-career .resume-scroll{
     padding-top:14px!important;
   }
+
+  /* Mobile resume readability: enlarge body/subtext without overtaking section titles. */
+  body[data-view="resume"] .resume-intro{
+    font-size:15px!important;
+    line-height:1.8!important;
+  }
+  body[data-view="resume"] .resume-contact small,
+  body[data-view="resume"] .resume-mini small{
+    font-size:11px!important;
+    line-height:1.35!important;
+  }
+  body[data-view="resume"] .resume-contact strong,
+  body[data-view="resume"] .resume-contact a,
+  body[data-view="resume"] .resume-contact .resume-copy-email{
+    font-size:15px!important;
+    line-height:1.45!important;
+  }
+  body[data-view="resume"] .career-date,
+  body[data-view="resume"] .career-tenure{
+    font-size:11px!important;
+  }
+  body[data-view="resume"] .career-main h4{
+    font-size:22px!important;
+    line-height:1.18!important;
+  }
+  body[data-view="resume"] .career-role{
+    font-size:13px!important;
+    line-height:1.45!important;
+  }
+  body[data-view="resume"] .career-main>p:not(.career-role){
+    font-size:14px!important;
+    line-height:1.8!important;
+  }
+  body[data-view="resume"] .resume-mini strong{
+    font-size:17px!important;
+    line-height:1.4!important;
+  }
+  body[data-view="resume"] .resume-mini p{
+    font-size:14px!important;
+    line-height:1.55!important;
+  }
+  body[data-view="resume"] .resume-bullets strong{
+    font-size:15px!important;
+    line-height:1.4!important;
+  }
+  body[data-view="resume"] .resume-bullets p{
+    font-size:13px!important;
+    line-height:1.6!important;
+  }
 }
 
 @media(max-width:680px){
