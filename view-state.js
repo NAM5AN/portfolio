@@ -30,7 +30,7 @@
         }
         .resume-profile-photo{
           position:absolute;
-          left:clamp(58px,7.4vw,94px);
+          left:clamp(18px,2.2vw,28px);
           bottom:0;
           width:clamp(92px,8.4vw,118px);
           aspect-ratio:1;
@@ -61,7 +61,7 @@
             margin-bottom:22px;
           }
           .resume-profile-photo{
-            left:24px;
+            left:14px;
             width:84px;
             border-width:4px;
           }
