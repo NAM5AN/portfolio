@@ -1,0 +1,39 @@
+/* Photography modal: centered elastic pill tabs that stay visible while the gallery scrolls. */
+#photoModal .photo-gallery-tabs{
+  position:sticky!important;
+  top:0;
+  z-index:20;
+  width:100%!important;
+  max-width:none!important;
+  justify-content:center!important;
+  margin:0 0 16px!important;
+  padding:10px 0!important;
+  border:0!important;
+  border-bottom:0!important;
+  background:var(--paper)!important;
+}
+#photoModal .photo-gallery-tabs.elastic-tabset{
+  min-height:54px;
+  overflow:visible!important;
+}
+#photoModal .photo-gallery-tabs.elastic-tabset .elastic-tab-pill{
+  top:10px;
+  bottom:10px;
+}
+#photoModal .photo-gallery-tabs .photo-gallery-tab::after{
+  display:none!important;
+}
+
+@media(max-width:680px){
+  #photoModal .photo-gallery-tabs{
+    margin-bottom:12px!important;
+    padding:8px 0!important;
+  }
+  #photoModal .photo-gallery-tabs.elastic-tabset{
+    min-height:48px;
+  }
+  #photoModal .photo-gallery-tabs.elastic-tabset .elastic-tab-pill{
+    top:8px;
+    bottom:8px;
+  }
+}
