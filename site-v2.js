@@ -12,6 +12,7 @@
   document.querySelector('.index-heading')?.remove();
   document.querySelectorAll('.section-modal .modal-head>div').forEach(node=>node.remove());
   document.querySelector('.migration-note')?.remove();
+  document.querySelectorAll('#featuredModal .modal-body>.lead,#photoModal .modal-body>.lead,#buildModal .modal-body>.lead').forEach(node=>node.remove());
 
   const heroSummary=document.querySelector('.hero-summary');
   if(heroSummary)heroSummary.textContent='영상 제작을 중심으로 기획, 촬영, 편집, 사진, 실무 디자인을 다룹니다. 기계 및 프로그램을 쉽게 익히며, AI를 능숙하게 사용합니다.';
