@@ -103,4 +103,75 @@
   };
 
   GROUPS.forEach(selector=>setup(document.querySelector(selector)));
+
+  const MODALS=[
+    {id:'featuredModal',no:'01',label:'Featured'},
+    {id:'videoModal',no:'02',label:'Video'},
+    {id:'planningModal',no:'03',label:'Planning'},
+    {id:'photoModal',no:'04',label:'Photography'},
+    {id:'designModal',no:'05',label:'Design'},
+    {id:'buildModal',no:'06',label:'AI & Build'}
+  ];
+
+  const openSection=index=>{
+    const item=MODALS[index];
+    if(!item)return;
+    const target=document.getElementById(item.id);
+    if(!target)return;
+
+    const current=MODALS.map(entry=>document.getElementById(entry.id)).find(dialog=>dialog?.open);
+    if(current&&current!==target)current.close();
+
+    requestAnimationFrame(()=>{
+      const trigger=document.querySelector(`#work-index [data-open="${item.id}"]`)||document.querySelector(`[data-open="${item.id}"]`);
+      if(trigger)trigger.click();
+      else if(!target.open)target.showModal();
+
+      requestAnimationFrame(()=>{
+        const body=target.querySelector('.modal-body');
+        if(body)body.scrollTop=0;
+      });
+    });
+  };
+
+  MODALS.forEach((item,index)=>{
+    const dialog=document.getElementById(item.id);
+    const head=dialog?.querySelector('.modal-head');
+    if(!dialog||!head||head.querySelector('.modal-section-nav'))return;
+
+    const nav=document.createElement('nav');
+    nav.className='modal-section-nav';
+    nav.setAttribute('aria-label','포트폴리오 상세 카테고리 이동');
+
+    const prev=document.createElement('button');
+    prev.type='button';
+    prev.className='modal-section-arrow modal-section-prev';
+    prev.textContent='←';
+    prev.setAttribute('aria-label',index>0?`이전 카테고리 ${MODALS[index-1].label}`:'이전 카테고리 없음');
+    if(index===0){
+      prev.disabled=true;
+      prev.setAttribute('aria-hidden','true');
+    }else prev.addEventListener('click',()=>openSection(index-1));
+
+    const no=document.createElement('span');
+    no.className='modal-section-no';
+    no.textContent=item.no;
+
+    const label=document.createElement('span');
+    label.className='modal-section-label';
+    label.textContent=item.label;
+
+    const next=document.createElement('button');
+    next.type='button';
+    next.className='modal-section-arrow modal-section-next';
+    next.textContent='→';
+    next.setAttribute('aria-label',index<MODALS.length-1?`다음 카테고리 ${MODALS[index+1].label}`:'다음 카테고리 없음');
+    if(index===MODALS.length-1){
+      next.disabled=true;
+      next.setAttribute('aria-hidden','true');
+    }else next.addEventListener('click',()=>openSection(index+1));
+
+    nav.append(prev,no,label,next);
+    head.appendChild(nav);
+  });
 })();
