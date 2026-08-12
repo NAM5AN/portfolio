@@ -2,14 +2,8 @@
   const wrap=document.querySelector('.index-preview');
   const preview=document.getElementById('homePreview');
   const caption=document.getElementById('previewCaption');
-  const originalRows=[...document.querySelectorAll('.work-row[data-preview]')];
-  if(!wrap||!preview||!caption||!originalRows.length)return;
-
-  const rows=originalRows.map(row=>{
-    const clone=row.cloneNode(true);
-    row.replaceWith(clone);
-    return clone;
-  });
+  const rows=[...document.querySelectorAll('.work-row[data-preview]')];
+  if(!wrap||!preview||!caption||!rows.length)return;
 
   const items={
     featured:['https://i.ytimg.com/vi/dI_J-0qeb5A/maxresdefault.jpg','FEATURED / NBN · 기자의 시선','기자의 시선 · 중장년층 고독사'],
