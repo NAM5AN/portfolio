@@ -51,22 +51,51 @@
     object-position:center!important;
     transform:none!important;
   }
-  #featuredModal .feature-image:hover img{
-    transform:none!important;
-  }
+  #featuredModal .feature-image:hover img{transform:none!important}
 }
 
-/* Modal section navigator: stronger title typography, more breathing room, triangle arrows. */
+/*
+  Portfolio modal internal topbar.
+  Every modal gets exactly the same header height and title position.
+  Video / Photography / Design use the lower row for pill tabs.
+  Featured / Planning / AI & Build intentionally keep that row empty.
+*/
 .section-modal .modal-shell{
-  grid-template-rows:68px minmax(0,1fr)!important;
+  grid-template-rows:150px minmax(0,1fr)!important;
 }
 .section-modal .modal-head{
-  min-height:68px!important;
+  position:relative!important;
+  min-height:150px!important;
+  padding:0 18px!important;
+  border-bottom:0!important;
+  background:var(--paper)!important;
 }
-.modal-section-nav{
+.section-modal .modal-head .close{
+  position:absolute!important;
+  top:18px!important;
+  right:18px!important;
+  width:36px!important;
+  height:36px!important;
+  margin:0!important;
+  transform:none!important;
+  z-index:8!important;
+}
+
+/* Center title row: ◁ 04 Photography ▷ */
+.section-modal .modal-section-nav{
+  position:absolute!important;
+  left:50%!important;
+  top:34px!important;
+  transform:translateX(-50%)!important;
+  display:grid!important;
   grid-template-columns:42px 36px 138px 42px!important;
+  column-gap:0!important;
+  align-items:center!important;
+  justify-items:center!important;
   width:258px!important;
   height:50px!important;
+  margin:0!important;
+  z-index:6!important;
 }
 .modal-section-no,
 .modal-section-label{
@@ -75,55 +104,106 @@
 }
 .modal-section-no{
   width:36px!important;
+  color:var(--accent)!important;
   font-size:13px!important;
+  line-height:1!important;
   letter-spacing:0!important;
+  text-align:center!important;
 }
 .modal-section-label{
   width:138px!important;
-  padding-left:12px!important;
+  padding:0 0 0 12px!important;
+  color:var(--ink)!important;
   font-size:15px!important;
   line-height:1.05!important;
+  text-align:center!important;
+  white-space:nowrap!important;
 }
 .modal-section-arrow{
   width:42px!important;
   height:42px!important;
-  font-size:0!important;
+  display:grid!important;
+  place-items:center!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
   border-radius:0!important;
   background:transparent!important;
-  transition:transform 140ms ease,color 140ms ease!important;
+  color:var(--ink)!important;
+  font-size:0!important;
+  line-height:1!important;
+  transition:transform 140ms ease!important;
 }
 .modal-section-arrow::before{
-  display:block;
-  color:var(--ink);
-  font-family:Arial,sans-serif;
-  font-size:23px;
-  font-weight:400;
-  line-height:1;
+  display:block!important;
+  color:var(--ink)!important;
+  font-family:Arial,sans-serif!important;
+  font-size:23px!important;
+  font-weight:400!important;
+  line-height:1!important;
 }
-.modal-section-prev::before{content:'◁'}
-.modal-section-next::before{content:'▷'}
+.modal-section-prev::before{content:'◁'!important}
+.modal-section-next::before{content:'▷'!important}
 .modal-section-prev:hover::before,
 .modal-section-prev:focus-visible::before,
-.modal-section-prev:active::before{content:'◀'}
+.modal-section-prev:active::before{content:'◀'!important}
 .modal-section-next:hover::before,
 .modal-section-next:focus-visible::before,
-.modal-section-next:active::before{content:'▶'}
-.modal-section-arrow:hover,
-.modal-section-arrow:focus-visible{
+.modal-section-next:active::before{content:'▶'!important}
+.modal-section-arrow:active{transform:scale(.9)!important}
+.modal-section-arrow:disabled{visibility:hidden!important;pointer-events:none!important}
+
+/* Lower tab row. It lives inside the same fixed header. */
+#videoModal .modal-head > .tabbar,
+#photoModal .modal-head > .photo-gallery-tabs,
+#designModal .modal-head > .tabbar{
+  display:flex!important;
+  position:absolute!important;
+  left:50%!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:16px!important;
+  transform:translateX(-50%)!important;
+  z-index:7!important;
+  width:max-content!important;
+  max-width:calc(100% - 110px)!important;
+  min-height:34px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-bottom:0!important;
   background:transparent!important;
+  justify-content:center!important;
+  overflow:visible!important;
 }
-.modal-section-arrow:active{
-  transform:scale(.9)!important;
+#videoModal .modal-head > .tabbar.elastic-tabset .elastic-tab-pill,
+#photoModal .modal-head > .photo-gallery-tabs.elastic-tabset .elastic-tab-pill,
+#designModal .modal-head > .tabbar.elastic-tabset .elastic-tab-pill{
+  top:0!important;
+  bottom:0!important;
+}
+#photoModal .photo-gallery-tab::after{display:none!important}
+
+.section-modal .modal-body{
+  padding-top:10px!important;
 }
 
 @media(max-width:680px){
   .section-modal .modal-shell{
-    grid-template-rows:60px minmax(0,1fr)!important;
+    grid-template-rows:132px minmax(0,1fr)!important;
   }
   .section-modal .modal-head{
-    min-height:60px!important;
+    min-height:132px!important;
+    padding:0 10px!important;
   }
-  .modal-section-nav{
+  .section-modal .modal-head .close{
+    top:10px!important;
+    right:10px!important;
+    width:34px!important;
+    height:34px!important;
+  }
+  .section-modal .modal-section-nav{
+    top:24px!important;
     grid-template-columns:36px 32px 122px 36px!important;
     width:226px!important;
     height:46px!important;
@@ -132,7 +212,7 @@
     width:36px!important;
     height:36px!important;
   }
-  .modal-section-arrow::before{font-size:21px}
+  .modal-section-arrow::before{font-size:21px!important}
   .modal-section-no{
     width:32px!important;
     font-size:12px!important;
@@ -142,8 +222,19 @@
     padding-left:9px!important;
     font-size:14px!important;
   }
+  #videoModal .modal-head > .tabbar,
+  #photoModal .modal-head > .photo-gallery-tabs,
+  #designModal .modal-head > .tabbar{
+    bottom:12px!important;
+    max-width:calc(100% - 28px)!important;
+    min-height:32px!important;
+  }
+  .section-modal .modal-body{
+    padding-top:8px!important;
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
   .modal-scroll-indicator{transition:none}
+  .modal-section-arrow{transition:none!important}
 }
