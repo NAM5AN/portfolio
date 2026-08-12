@@ -1,0 +1,40 @@
+/* Resume PDF download action */
+.resume-download-link{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  width:max-content;
+  margin:16px 0 22px;
+  padding:9px 14px 10px;
+  border:1px solid var(--ink);
+  border-radius:999px;
+  background:var(--ink);
+  color:var(--paper);
+  font-size:10px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-.01em;
+  text-decoration:none;
+  transition:transform .16s ease,background .16s ease,color .16s ease;
+}
+.resume-download-link::after{
+  content:'↓';
+  font-size:12px;
+  line-height:1;
+}
+.resume-download-link:hover{
+  transform:translateY(-1px);
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+.resume-download-link:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+@media(max-width:680px){
+  .resume-download-link{
+    margin:14px 0 20px;
+    padding:9px 13px 10px;
+  }
+}
