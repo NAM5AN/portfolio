@@ -53,6 +53,17 @@
     return rawUrl(href);
   };
 
+  const resumeIntro=document.querySelector('.resume-intro');
+  if(resumeIntro&&!document.querySelector('.resume-download-link')){
+    const link=document.createElement('a');
+    link.className='resume-download-link';
+    link.href=resolveAsset('./assets/resume/kim-sujeong-resume.pdf');
+    link.download='김수정_이력서.pdf';
+    link.setAttribute('aria-label','김수정 PDF 이력서 다운로드');
+    link.textContent='PDF 이력서 다운로드';
+    resumeIntro.after(link);
+  }
+
   const loadCss=href=>new Promise(resolve=>{
     if(!remoteMode){
       const el=document.createElement('link');
@@ -102,6 +113,7 @@
       `./title-number-scale.css?v=${V}`,
       `./resume-refine.css?v=${V}`,
       `./resume-contact.css?v=${V}`,
+      `./resume-download.css?v=${V}`,
       `./portfolio-index-refine.css?v=${V}`,
       `./portfolio-stats-center.css?v=${V}`,
       `./portfolio-shell-refine.css?v=${V}`,
