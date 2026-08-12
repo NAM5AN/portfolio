@@ -1,5 +1,5 @@
 (async()=>{
-  const V='20260812ag';
+  const V='20260812ah';
 
   const faviconSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#101113"/><path d="M17 16v32M17 32l25-16M17 32l27 16" fill="none" stroke="#f9faf8" stroke-width="6" stroke-linecap="square"/></svg>';
   document.querySelectorAll('link[rel~="icon"]').forEach(node=>node.remove());
@@ -47,7 +47,7 @@
   const photoPreview=rawBase?`${rawBase}assets/photo/thumb/concept/concept-01.webp`:'./assets/photo/thumb/concept/concept-01.webp';
   [
     'https://i.ytimg.com/vi/jINNCqnUSL8/maxresdefault.jpg',
-    'https://i.ytimg.com/vi/fY-a_4WTMnQ/maxresdefault.jpg',
+    'https://i.ytimg.com/vi/dI_J-0qeb5A/maxresdefault.jpg',
     'https://i.ytimg.com/vi/RRaPlueNU8Y/maxresdefault.jpg',
     photoPreview,
     'https://drive.google.com/thumbnail?id=1IMS882egUEvxo32byMvxnYUVQnDglh0x&sz=w1600',
@@ -141,6 +141,7 @@
       './preview-controller.js',
       './photo-preview-concept.js',
       './design-preview-duo.js',
+      './video-preview-nbn.js',
       './view-state.js'
     ];
     for(const src of scripts)await loadScript(`${src}?v=${V}`);
