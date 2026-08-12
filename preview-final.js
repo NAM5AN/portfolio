@@ -59,9 +59,20 @@
 
   rows.forEach(row=>{
     const showRow=()=>show(row);
-    row.addEventListener('mouseenter',showRow);
+
+    if(row.dataset.preview==='photo'){
+      const guardLegacyPhotoPreview=e=>{
+        e.stopImmediatePropagation();
+        show(row);
+      };
+      row.addEventListener('mouseenter',guardLegacyPhotoPreview,true);
+      row.addEventListener('focus',guardLegacyPhotoPreview,true);
+    }else{
+      row.addEventListener('mouseenter',showRow);
+      row.addEventListener('focus',showRow);
+    }
+
     row.addEventListener('pointerenter',showRow);
-    row.addEventListener('focus',showRow);
     row.addEventListener('click',showRow);
     row.addEventListener('touchstart',showRow,{passive:true});
   });
