@@ -11,7 +11,19 @@
     const vh=viewport.clientHeight;
     if(!vw||!vh)return;
 
-    const ratio=Math.min(vw/img.naturalWidth,vh/img.naturalHeight);
+    const compact=window.matchMedia('(max-width:760px)').matches;
+    const insetX=compact
+      ? 12
+      : Math.min(56,Math.max(28,vw*0.035));
+    const insetY=compact
+      ? 18
+      : Math.min(64,Math.max(34,vh*0.05));
+    const availableWidth=Math.max(1,vw-insetX*2);
+    const availableHeight=Math.max(1,vh-insetY*2);
+    const ratio=Math.min(
+      availableWidth/img.naturalWidth,
+      availableHeight/img.naturalHeight
+    );
     const fittedWidth=Math.max(1,Math.floor(img.naturalWidth*ratio));
     const fittedHeight=Math.max(1,Math.floor(img.naturalHeight*ratio));
 
