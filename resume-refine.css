@@ -103,6 +103,29 @@ body[data-view="resume"] .resume-home{padding-bottom:0!important}
   color:var(--accent);
 }
 
+/* Resume cleanup requested for the two-pane layout. */
+body[data-view="resume"] .resume-career .resume-scroll{
+  padding-top:20px!important;
+}
+body[data-view="resume"] .resume-contact{
+  border-bottom:0!important;
+  margin-bottom:0!important;
+  padding-bottom:0!important;
+}
+body[data-view="resume"] .resume-contact>div:nth-last-child(-n+2){
+  border-bottom:0!important;
+}
+body[data-view="resume"] .resume-stats{
+  border-bottom:0!important;
+  margin-bottom:0!important;
+}
+body[data-view="resume"] .resume-stats>.resume-stat:nth-last-child(-n+2){
+  border-bottom:0!important;
+}
+body[data-view="resume"] .resume-bullets{
+  margin-bottom:0!important;
+}
+
 @media(max-width:1180px) and (min-width:901px){
   .site>.site-tools-bar .resume-skills{column-gap:14px;padding-inline:12px}
   .site>.site-tools-bar .skill-cloud{gap:4px 9px}
@@ -130,5 +153,8 @@ body[data-view="resume"] .resume-home{padding-bottom:0!important}
   .resume-section-title,
   .resume-section-title.career-heading-row{
     column-gap:10px!important;
+  }
+  body[data-view="resume"] .resume-career .resume-scroll{
+    padding-top:14px!important;
   }
 }
