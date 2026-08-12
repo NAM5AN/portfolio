@@ -1,11 +1,11 @@
 /* Portfolio detail modal cleanup + elastic text tabs */
 .section-modal .modal-shell{
-  grid-template-rows:50px minmax(0,1fr);
+  grid-template-rows:72px minmax(0,1fr);
 }
 .section-modal .modal-head{
   position:relative;
   justify-content:flex-end;
-  min-height:50px;
+  min-height:72px;
   padding:0 16px;
   border-bottom:1px solid var(--line);
   background:var(--paper);
@@ -25,55 +25,83 @@
   color:var(--paper);
 }
 
-/* Fixed modal category navigator: number and label never shift with text length. */
+/* Fixed modal category navigator: equal arrow slots + fixed title block keep it truly centered. */
 .modal-section-nav{
   position:absolute;
   left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
+  top:0;
+  transform:translateX(-50%);
   display:grid;
-  grid-template-columns:34px 30px 118px 34px;
+  grid-template-columns:44px 190px 44px;
+  column-gap:16px;
   align-items:center;
-  width:216px;
-  height:40px;
+  justify-items:center;
+  width:310px;
+  height:72px;
   z-index:2;
 }
+.modal-section-title{
+  display:grid;
+  grid-template-columns:42px 148px;
+  align-items:center;
+  width:190px;
+  height:100%;
+}
 .modal-section-arrow{
-  width:34px;
-  height:34px;
+  width:44px;
+  height:44px;
   display:grid;
   place-items:center;
   margin:0;
   padding:0;
   border:0;
-  border-radius:50%;
-  background:transparent;
+  border-radius:0;
+  background:transparent!important;
   color:var(--ink);
-  font-size:18px;
+  font-size:0;
   line-height:1;
-  transition:background 160ms ease,transform 160ms ease;
+  transition:transform 150ms ease;
 }
-.modal-section-arrow:hover{background:rgba(23,23,20,.07)}
+.modal-section-arrow::before{
+  display:block;
+  font-family:Arial,sans-serif;
+  font-size:27px;
+  font-weight:400;
+  line-height:1;
+}
+.modal-section-prev::before{content:'◁'}
+.modal-section-next::before{content:'▷'}
+.modal-section-prev:hover::before,
+.modal-section-prev:focus-visible::before,
+.modal-section-prev:active::before{content:'◀'}
+.modal-section-next:hover::before,
+.modal-section-next:focus-visible::before,
+.modal-section-next:active::before{content:'▶'}
+.modal-section-arrow:hover{transform:scale(1.06)}
 .modal-section-arrow:active{transform:scale(.94)}
 .modal-section-arrow:disabled{
   visibility:hidden;
   pointer-events:none;
 }
 .modal-section-no{
-  width:30px;
+  width:42px;
   text-align:center;
   color:var(--accent);
-  font:800 10px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  letter-spacing:.04em;
+  font-family:var(--font-title)!important;
+  font-size:15px;
+  font-weight:700!important;
+  line-height:1;
+  letter-spacing:0;
 }
 .modal-section-label{
-  width:118px;
-  padding-left:10px;
-  text-align:left;
+  width:148px;
+  padding:0;
+  text-align:center;
   color:var(--ink);
-  font-size:11px;
+  font-family:var(--font-title)!important;
+  font-size:18px;
+  font-weight:700!important;
   line-height:1;
-  font-weight:800;
   white-space:nowrap;
 }
 
@@ -200,17 +228,23 @@
   }
 }
 @media(max-width:680px){
-  .section-modal .modal-shell{grid-template-rows:46px minmax(0,1fr)}
-  .section-modal .modal-head{min-height:46px;padding:0 10px}
+  .section-modal .modal-shell{grid-template-rows:62px minmax(0,1fr)}
+  .section-modal .modal-head{min-height:62px;padding:0 10px}
   .section-modal .modal-head .close{width:34px;height:34px}
   .modal-section-nav{
-    grid-template-columns:32px 28px 108px 32px;
-    width:200px;
-    height:36px;
+    grid-template-columns:38px 180px 38px;
+    column-gap:12px;
+    width:280px;
+    height:62px;
   }
-  .modal-section-arrow{width:32px;height:32px;font-size:17px}
-  .modal-section-no{width:28px;font-size:9px}
-  .modal-section-label{width:108px;padding-left:8px;font-size:10px}
+  .modal-section-title{
+    grid-template-columns:38px 142px;
+    width:180px;
+  }
+  .modal-section-arrow{width:38px;height:38px}
+  .modal-section-arrow::before{font-size:24px}
+  .modal-section-no{width:38px;font-size:13px}
+  .modal-section-label{width:142px;font-size:15px}
   .elastic-tabset{gap:3px!important;margin:0 auto 16px!important}
   .elastic-tabset>button{padding:7px 8px!important;font-size:9px;min-height:32px}
   #planningModal .split-reader{
