@@ -3,19 +3,25 @@
   inset:0;
   z-index:1;
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-rows:1fr;
   gap:0;
   background:#0d0d0c;
   overflow:hidden;
 }
 .index-preview .design-preview-duo[hidden]{display:none}
 .index-preview .design-preview-duo img{
-  display:block;
-  width:100%;
-  height:100%;
-  min-width:0;
-  object-fit:contain;
+  position:relative!important;
+  inset:auto!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
   background:#0d0d0c;
+  transform:none!important;
 }
 .index-preview .preview-shade{z-index:2}
 .index-preview #previewCaption{z-index:3}
