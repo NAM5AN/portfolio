@@ -26,10 +26,28 @@ body[data-view="portfolio"] .work-row .no{
   line-height:1;
 }
 
+/* Reel gallery: denser desktop overview while keeping touch targets readable on smaller screens. */
+#videoModal .reel-grid{
+  grid-template-columns:repeat(6,minmax(0,1fr))!important;
+  gap:8px!important;
+}
+
+@media(max-width:1180px){
+  #videoModal .reel-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+
 @media(max-width:1100px){
   body[data-view="portfolio"] .work-row .no{
     font-size:clamp(16px,1.65vw,21px);
   }
+}
+
+@media(max-width:820px){
+  #videoModal .reel-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+
+@media(max-width:680px){
+  #videoModal .reel-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 }
 
 @media(max-width:900px){
