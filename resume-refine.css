@@ -135,10 +135,41 @@ body[data-view="resume"] .resume-bullets{
 }
 
 @media(max-width:900px){
-  .site{grid-template-rows:52px minmax(0,1fr) auto!important}
+  html,
+  body{
+    height:100%;
+    overflow:hidden!important;
+    overscroll-behavior:none;
+  }
+  .site{
+    position:fixed!important;
+    inset:0!important;
+    width:100%!important;
+    height:100dvh!important;
+    min-height:100dvh!important;
+    grid-template-rows:52px minmax(0,1fr) auto!important;
+    padding:max(10px,env(safe-area-inset-top)) 10px max(8px,env(safe-area-inset-bottom))!important;
+    gap:8px!important;
+    overflow:hidden!important;
+  }
+  .bar{
+    position:relative;
+    z-index:50;
+    min-height:52px;
+  }
+  .resume-home,
+  .home{
+    min-height:0!important;
+    height:100%!important;
+    overflow:auto!important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
   .site>.site-tools-bar{
     height:auto!important;
     min-height:0;
+    position:relative!important;
+    z-index:50!important;
   }
   .site>.site-tools-bar .resume-skills{
     height:auto;
