@@ -25,16 +25,24 @@
   }
 
   const setActive=row=>rows.forEach(item=>item.classList.toggle('active',item===row));
-  const hideDuo=()=>{duo.hidden=true;preview.style.visibility='visible'};
+  const hideDuo=()=>{
+    duo.hidden=true;
+    preview.style.visibility='visible';
+  };
   const show=row=>{
     const key=row.dataset.preview;
     setActive(row);
+
+    // 다른 모듈이 남겨 둔 이미지 fallback/error 상태까지 매번 초기화한다.
+    preview.onerror=null;
+
     if(key==='design'){
       duo.hidden=false;
       preview.style.visibility='hidden';
       caption.textContent='DESIGN / HEALTHCARE';
       return;
     }
+
     const item=items[key];
     if(!item)return;
     hideDuo();
@@ -45,9 +53,15 @@
     caption.textContent=item[1];
   };
 
+  // 예전 photo/legacy hover listener가 남아 있어도 이 컨트롤러 이후에는 실행되지 않게 한다.
   rows.forEach(row=>{
-    row.addEventListener('pointerenter',()=>show(row));
-    row.addEventListener('focus',()=>show(row));
+    const hover=e=>{
+      e.stopImmediatePropagation();
+      show(row);
+    };
+    row.addEventListener('mouseenter',hover,true);
+    row.addEventListener('pointerenter',()=>show(row),true);
+    row.addEventListener('focus',hover,true);
     row.addEventListener('click',()=>show(row));
     row.addEventListener('touchstart',()=>show(row),{passive:true});
   });
@@ -59,7 +73,11 @@
       ...Object.values(items).map(item=>item[0]),
       'https://drive.google.com/thumbnail?id=1IMS882egUEvxo32byMvxnYUVQnDglh0x&sz=w900',
       'https://drive.google.com/thumbnail?id=1SvFvq5mPlbk2Oe5BR-gupfrxJu80-fmM&sz=w900'
-    ].forEach(src=>{const img=new Image();img.decoding='async';img.src=src});
+    ].forEach(src=>{
+      const img=new Image();
+      img.decoding='async';
+      img.src=src;
+    });
   };
   if('requestIdleCallback'in window)requestIdleCallback(warm,{timeout:2500});
   else setTimeout(warm,1400);
