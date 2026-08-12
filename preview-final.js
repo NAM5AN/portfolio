@@ -11,7 +11,8 @@
     featured:['https://i.ytimg.com/vi/dI_J-0qeb5A/maxresdefault.jpg','FEATURED / NBN · 기자의 시선','기자의 시선 · 중장년층 고독사'],
     video:['https://i.ytimg.com/vi/TPrPnkTMmTo/maxresdefault.jpg','VIDEO / FILM · 소확행','단편영화 소확행'],
     planning:['https://i.ytimg.com/vi/jINNCqnUSL8/maxresdefault.jpg','PLANNING / CONTENT STRATEGY','창업지원금 콘텐츠'],
-    photo:[local('./assets/photo/thumb/concept/concept-01.webp'),'PHOTOGRAPHY / CONCEPT','Photography concept portfolio preview']
+    photo:[local('./assets/photo/thumb/concept/concept-01.webp'),'PHOTOGRAPHY / CONCEPT','Photography concept portfolio preview'],
+    build:[local('./assets/preview/ai-tools.webp'),'AI & BUILD / WORKFLOW','AI tools workflow — Codex, Claude, Gemini, Seedance, Kling']
   };
 
   let duo=wrap.querySelector('.design-preview-duo');
@@ -25,17 +26,13 @@
 
   const setActive=row=>rows.forEach(item=>item.classList.toggle('active',item===row));
   const hideDuo=()=>{duo.hidden=true;preview.style.visibility='visible'};
-  const show=(row)=>{
+  const show=row=>{
     const key=row.dataset.preview;
     setActive(row);
     if(key==='design'){
       duo.hidden=false;
       preview.style.visibility='hidden';
       caption.textContent='DESIGN / HEALTHCARE';
-      return;
-    }
-    if(key==='build'){
-      hideDuo();
       return;
     }
     const item=items[key];
@@ -49,33 +46,13 @@
   };
 
   rows.forEach(row=>{
-    const key=row.dataset.preview;
-    if(key!=='build'){
-      ['pointerenter','mouseenter','focus'].forEach(type=>row.addEventListener(type,e=>{
-        e.stopImmediatePropagation();
-        show(row);
-      },true));
-    }else{
-      const syncBuild=()=>{
-        setActive(row);
-        hideDuo();
-        const snapshot=preview.src.startsWith('data:image/')?preview.src:'';
-        setTimeout(()=>{
-          if(!row.classList.contains('active'))return;
-          const ai=preview.src.startsWith('data:image/')?preview.src:snapshot;
-          if(ai){preview.src=ai;preview.style.opacity='.88';caption.textContent='AI & BUILD / WORKFLOW'}
-        },130);
-      };
-      row.addEventListener('pointerenter',syncBuild);
-      row.addEventListener('mouseenter',syncBuild);
-      row.addEventListener('focus',syncBuild);
-    }
+    row.addEventListener('pointerenter',()=>show(row));
+    row.addEventListener('focus',()=>show(row));
     row.addEventListener('click',()=>show(row));
     row.addEventListener('touchstart',()=>show(row),{passive:true});
   });
 
-  const initial=rows.find(row=>row.classList.contains('active'))||rows[0];
-  if(initial.dataset.preview!=='build')show(initial);
+  show(rows.find(row=>row.classList.contains('active'))||rows[0]);
 
   const warm=()=>{
     [
